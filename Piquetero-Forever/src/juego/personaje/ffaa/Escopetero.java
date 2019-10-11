@@ -1,18 +1,11 @@
 package juego.personaje.ffaa;
 
-import grafico.Grafico;
-import juego.Entidad;
+import juego.Juego;
 
 public class Escopetero extends Enemigo {
 	
-	public Escopetero(Grafico g) 
+	public Escopetero(Juego j) 
 	{
+		super(j);
 	}
-
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

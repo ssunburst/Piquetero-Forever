@@ -2,16 +2,13 @@ package juego.personaje.proyectil;
 
 import grafico.Grafico;
 import juego.Entidad;
+import juego.Juego;
 
-public class BalaDeGoma extends Proyectil
+public class BalaDeGoma extends ProyectilEnemigo
 {
-	public BalaDeGoma(Grafico g) 
-	{
-	}
 
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
+	public BalaDeGoma(Juego j) 
+	{
+		super(j);
 	}
 }

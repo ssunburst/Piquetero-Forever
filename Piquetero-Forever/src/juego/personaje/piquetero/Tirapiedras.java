@@ -1,11 +1,11 @@
 package juego.personaje.piquetero;
 
-import grafico.Grafico;
+import juego.Juego;
 
 public class Tirapiedras extends Piquetero 
 {
-	public Tirapiedras()
+	public Tirapiedras(Juego j)
 	{
-		
+		super(j);
 	}
 }

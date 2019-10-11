@@ -15,15 +15,6 @@ public abstract class Grafico extends JLabel
 		super();
 		this.entidad = e;
 		imagenes = new Icon[img];
-		
-		this.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				super.mouseClicked(arg0);
-			}
-			
-		});
 	}
 	
 	public Icon[] getImagenes() {

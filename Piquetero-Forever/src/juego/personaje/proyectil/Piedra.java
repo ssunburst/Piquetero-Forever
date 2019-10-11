@@ -1,17 +1,11 @@
 package juego.personaje.proyectil;
 
-import grafico.Grafico;
-import juego.Entidad;
+import juego.Juego;
 
-public class Piedra extends Proyectil
+public class Piedra extends ProyectilAmigo
 {
-	public Piedra(Grafico g) 
-	{
-	}
-
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
+	public Piedra(Juego j) {
+		super(j);
+		// TODO específicos
 	}
 }

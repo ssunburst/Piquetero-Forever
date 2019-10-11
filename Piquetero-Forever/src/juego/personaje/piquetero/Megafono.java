@@ -1,11 +1,12 @@
 package juego.personaje.piquetero;
 
-import grafico.Grafico;
+import juego.Juego;
 
 public class Megafono extends Piquetero {
 
-	public Megafono()
+	public Megafono(Juego j)
 	{
+		super(j);
 	}
 	
 }

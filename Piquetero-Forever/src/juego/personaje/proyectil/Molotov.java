@@ -1,17 +1,12 @@
 package juego.personaje.proyectil;
 
-import grafico.Grafico;
-import juego.Entidad;
+import juego.Juego;
 
-public class Molotov extends Proyectil 
+public class Molotov extends ProyectilAmigo
 {
-	public Molotov(Grafico g)
+	public Molotov(Juego j) 
 	{
-	}
-
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
+		super(j);
+		// TODO específicos
 	}
 }

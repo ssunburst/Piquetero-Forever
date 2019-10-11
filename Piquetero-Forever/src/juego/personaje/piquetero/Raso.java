@@ -1,10 +1,11 @@
 package juego.personaje.piquetero;
 
-import grafico.Grafico;
+import juego.Juego;
 
 public class Raso extends Piquetero 
 {
-	public Raso()
+	public Raso(Juego j)
 	{
+		super(j);
 	}
 }

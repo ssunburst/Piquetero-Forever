@@ -1,6 +1,9 @@
 package juego;
 import grafico.mapa.Mapa;
 import java.util.List;
+
+import org.omg.CORBA.FREE_MEM;
+
 import java.util.LinkedList;
 
 public class Juego 
@@ -68,5 +71,12 @@ public class Juego
 	public void quitarEntidad(Entidad e)
 	{
 		this.entidades.remove(e);
+		this.mapa.quitarGrafico(e.getGrafico());
+	}
+	
+	public void accionar()
+	{
+		for (Entidad e: entidades)
+			e.accionar();
 	}
 }

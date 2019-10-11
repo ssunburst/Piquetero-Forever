@@ -1,17 +1,12 @@
 package juego.personaje.proyectil;
 
-import grafico.Grafico;
-import juego.Entidad;
+import juego.Juego;
 
-public class Hielo extends Proyectil 
+public class Hielo extends ProyectilAmigo
 {
-	public Hielo() 
+	public Hielo(Juego j) 
 	{
-	}
-
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
+		super(j);
+		// TODO específicos
 	}
 }

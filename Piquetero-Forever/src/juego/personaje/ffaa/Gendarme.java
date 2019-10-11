@@ -1,19 +1,11 @@
 package juego.personaje.ffaa;
 
-import grafico.Grafico;
-import juego.Entidad;
+import juego.Juego;
 
 public class Gendarme extends Enemigo {
 	
-	public Gendarme()
+	public Gendarme(Juego j)
 	{
-		
+		super(j);
 	}
-
-	@Override
-	public void atacar(Entidad e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

@@ -8,15 +8,62 @@ import visitor.Visitor;
 
 public abstract class Entidad
 {
+	protected Juego juego;
 	protected Grafico grafico;
-	protected Visitor v;
 	protected int dagno;
 	protected int velocidad;
+	protected int vida;
+	protected Visitor visitor;
 	
-	public Grafico getGrafico()
+	
+	public Entidad(Juego j)
 	{
-		return grafico;
+		this.juego = j;
 	}
 	
-	public abstract void atacar(Entidad e);
+	public int getVida() {
+		return vida;
+	}
+
+	public abstract void recibirDagno(int d);
+	
+	public void morir()
+	{
+		// Animaciones y otres
+		juego.quitarEntidad(this);
+	}
+	
+	public Visitor visitor()
+	{
+		return visitor;
+	}
+
+	public Juego getJuego() {
+		return juego;
+	}
+
+
+	public Grafico getGrafico() {
+		return grafico;
+	}
+
+
+	public int getDagno() {
+		return dagno;
+	}
+
+
+	public int getVelocidad() {
+		return velocidad;
+	}
+	
+	public abstract void accionar();
+	
+	public void atacar(Entidad e)
+	{
+		// AGREGAR animación y otres.
+		e.recibirDagno(this.dagno);
+	}
+	
+	public abstract void aceptar(Visitor v);
 }

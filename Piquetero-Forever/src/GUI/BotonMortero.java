@@ -19,7 +19,7 @@ public class BotonMortero extends BotonPiquetero
 			public void actionPerformed(ActionEvent arg0) {
 				if (juego.getTienda().getToAdd() == null) 
 				{
-					Mortero m = new Mortero();
+					Mortero m = new Mortero(j);
 					
 					System.out.println("Monedas actuales: " + juego.getMonedas());
 					

@@ -1,11 +1,11 @@
 package juego.personaje.piquetero;
 
-import grafico.Grafico;
+import juego.Juego;
 
 public class SubZero extends Piquetero 
 {
-	public SubZero()
+	public SubZero(Juego j)
 	{
-		
+		super(j);
 	}
 }
