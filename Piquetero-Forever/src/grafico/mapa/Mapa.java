@@ -26,13 +26,13 @@ public class Mapa extends JPanel {
 	protected final int COLUMNAS = 9;
 	protected final int playZoneY = 113;
 	protected boolean vender;
-	
+
 	public Mapa(Juego j) {
 		this.setLayout(null);
 		this.juego = j;
 
 		boolean vender = false;
-		
+
 		graficos = new LinkedList<Grafico>();
 		posAliadas = new HashMap<Point, Grafico>();
 
@@ -97,38 +97,35 @@ public class Mapa extends JPanel {
 			return (((y - playZoneY) / rowSize()) * rowSize()) + playZoneY;
 		}
 	}
-	
-	public void setVender(boolean v)
-	{
+
+	public void setVender(boolean v) {
 		vender = v;
 	}
-	
+
 	// Oyente del mapa
 	private class MapListener extends MouseAdapter {
 		@Override
-		public void mouseClicked(MouseEvent e) 
-		{
+		public void mouseReleased(MouseEvent e) {
 			int x = fixX(e.getX());
 			int y = fixY(e.getY());
 			Point p = new Point(x, y);
 			Tienda t = juego.getTienda();
 			Entidad toAdd = t.getToAdd();
-			if (vender)
-			{
-				Entidad aVend =(Entidad) posAliadas.get(p).getEntidad();
-				aVend.vender();
-				vender = false;
-				juego.getGUI().setearPanel(true);
-				juego.getGUI().setearBotonVender(true);
-			}
-			else if (toAdd != null) 
-			{
-				if (y > -1) 
+			if (vender) {
+				Grafico gVend = (Grafico) posAliadas.get(p);
+				if (gVend != null) 
 				{
+					Entidad aVend = gVend.getEntidad();
+					aVend.vender();
+					vender = false;
+					juego.getGUI().setearPanel(true);
+					juego.getGUI().setearBotonVender(true);
+				}
+			} else if (toAdd != null) {
+				if (y > -1) {
 
 					Grafico g = posAliadas.get(p);
-					if (g == null) 
-					{
+					if (g == null) {
 						posAliadas.put(p, toAdd.getGrafico());
 						juego.agregarEntidad(toAdd);
 						agregarGrafico(toAdd.getGrafico(), p);
