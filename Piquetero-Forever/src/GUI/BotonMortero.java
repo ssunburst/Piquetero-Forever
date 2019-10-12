@@ -1,5 +1,6 @@
 package GUI;
 
+import juego.Entidad;
 import juego.Juego;
 import juego.personaje.piquetero.Mortero;
 import java.awt.event.*;
@@ -12,24 +13,12 @@ public class BotonMortero extends BotonPiquetero
 	{
 		super(j);
 		this.setText("Mortero");
-		
-		this.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				if (juego.getTienda().getToAdd() == null) 
-				{
-					Mortero m = new Mortero(j);
-					
-					System.out.println("Monedas actuales: " + juego.getMonedas());
-					
-					if (juego.getMonedas() >= m.getPrecio()) 
-					{
-						juego.gastarMonedas(m.getPrecio());
-						juego.getTienda().setNextToAdd(m);
-					}
-				}
-			}
-		});
 	}
+
+	@Override
+	public Entidad crearEntidad(Juego j) 
+	{
+		return new Mortero(j);
+	}
+	
 }

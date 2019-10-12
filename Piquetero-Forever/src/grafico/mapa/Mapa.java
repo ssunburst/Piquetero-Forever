@@ -25,11 +25,14 @@ public class Mapa extends JPanel {
 	protected final int FILAS = 5;
 	protected final int COLUMNAS = 9;
 	protected final int playZoneY = 113;
-
+	protected boolean vender;
+	
 	public Mapa(Juego j) {
 		this.setLayout(null);
 		this.juego = j;
 
+		boolean vender = false;
+		
 		graficos = new LinkedList<Grafico>();
 		posAliadas = new HashMap<Point, Grafico>();
 
@@ -54,6 +57,8 @@ public class Mapa extends JPanel {
 		this.graficos.add(toAdd);
 		this.add(toAdd);
 		this.setComponentZOrder(toAdd, 0);
+		this.juego.getGUI().setearPanel(true);
+		this.juego.getGUI().setearBotonVender(true);
 		this.repaint();
 		System.out.println("Agregado un gráfico en la posición " + p);
 	}
@@ -98,17 +103,24 @@ public class Mapa extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) 
 		{
+			int x = fixX(e.getX());
+			int y = fixY(e.getY());
+			Point p = new Point(x, y);
 			Tienda t = juego.getTienda();
 			Entidad toAdd = t.getToAdd();
-
-			if (toAdd != null) 
+			if (vender)
 			{
-				int x = fixX(e.getX());
-				int y = fixY(e.getY());
-
+				Entidad aVend =(Entidad) posAliadas.get(p).getEntidad();
+				aVend.vender();
+				vender = false;
+				juego.getGUI().setearPanel(true);
+				juego.getGUI().setearBotonVender(true);
+			}
+			else if (toAdd != null) 
+			{
 				if (y > -1) 
 				{
-					Point p = new Point(x, y);
+
 					Grafico g = posAliadas.get(p);
 					if (g == null) 
 					{
@@ -117,12 +129,9 @@ public class Mapa extends JPanel {
 						agregarGrafico(toAdd.getGrafico(), p);
 						juego.getTienda().setNextToAdd(null);
 					}
-					else
-						System.out.println("No puede aregarse un gráfico en la posición " + p);
 
 				}
 			}
 		}
 	}
-
 }

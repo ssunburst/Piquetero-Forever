@@ -8,7 +8,6 @@ import juego.Juego;
 
 public abstract class Piquetero extends Personaje 
 {	
-	protected int precio;
 	
 	public Piquetero(Juego j) 
 	{
@@ -21,12 +20,7 @@ public abstract class Piquetero extends Personaje
 	{
 		v.visitarPiquetero(this);
 	}
-	
-	public int getPrecio()
-	{
-		return precio;
-	}
-	
+
 	@Override
 	public void vender() 
 	{

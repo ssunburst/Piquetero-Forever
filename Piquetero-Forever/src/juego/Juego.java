@@ -25,6 +25,7 @@ public class Juego
 		mapa = new Mapa(this);
 		tienda = new Tienda(this);
 		entidades = new LinkedList<Entidad>();
+		
 	}
 	
 	public int getPuntaje() {
@@ -82,5 +83,10 @@ public class Juego
 	{
 		for (Entidad e: entidades)
 			e.accionar();
+	}
+	
+	public GameGUI getGUI()
+	{
+		return gui;
 	}
 }
