@@ -100,7 +100,7 @@ public class Mapa extends JPanel {
 	
 	public void setVender(boolean v)
 	{
-		vender = true;
+		vender = v;
 	}
 	
 	// Oyente del mapa
