@@ -98,6 +98,11 @@ public class Mapa extends JPanel {
 		}
 	}
 	
+	public void setVender(boolean v)
+	{
+		vender = true;
+	}
+	
 	// Oyente del mapa
 	private class MapListener extends MouseAdapter {
 		@Override
