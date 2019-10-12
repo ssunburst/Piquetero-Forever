@@ -11,16 +11,9 @@ public class GraficoPiquetero extends Grafico
 {
 	Piquetero entidad;
 
-	public GraficoPiquetero(Piquetero e, int img) {
+	public GraficoPiquetero(Piquetero e, int img) 
+	{
 		super(e, img);
-		this.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				entidad.vender();
-			}
-		});
 	}
 
 }

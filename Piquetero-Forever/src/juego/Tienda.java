@@ -19,7 +19,6 @@ public class Tienda
 	public Entidad getToAdd()
 	{
 		Entidad toReturn = aColocar;
-		aColocar = null;
 		return toReturn;
 	}
 }

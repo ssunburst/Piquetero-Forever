@@ -65,5 +65,10 @@ public abstract class Entidad
 		e.recibirDagno(this.dagno);
 	}
 	
+	public void vender()
+	{
+		
+	}
+	
 	public abstract void aceptar(Visitor v);
 }

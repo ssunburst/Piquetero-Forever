@@ -5,6 +5,7 @@ import java.util.List;
 import org.omg.CORBA.FREE_MEM;
 
 import java.util.LinkedList;
+import GUI.GameGUI;
 
 public class Juego 
 {
@@ -14,9 +15,11 @@ public class Juego
 	protected Nivel nivelActual;
 	protected Tienda tienda;
 	protected List<Entidad> entidades;
+	protected GameGUI gui;
 	
-	public Juego()
+	public Juego(GameGUI g)
 	{
+		gui = g;
 		puntaje = 0;
 		monedas = 1000;
 		mapa = new Mapa(this);
@@ -56,6 +59,7 @@ public class Juego
 	public void gastarMonedas(int m)
 	{
 		this.monedas -= m;
+		this.gui.actualizarMonedas();
 	}
 	
 	public Iterable<Entidad> entidades()

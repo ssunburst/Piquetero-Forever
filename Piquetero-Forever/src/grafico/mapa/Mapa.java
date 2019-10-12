@@ -45,47 +45,21 @@ public class Mapa extends JPanel {
 		background.setBounds(0, 0, this.getWidth(), this.getHeight());
 		background.setIcon(new ImageIcon(this.getClass().getResource("/imagenes/mapa.png")));
 		this.add(background);
-		this.setComponentZOrder(background, 0);
-	}
-
-	private class MapListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			int x = fixX(e.getX());
-			int y = fixY(e.getY());
-
-			if (y > -1) {
-				Point p = new Point(x, y);
-				Grafico g = posAliadas.get(p);
-				if (g == null) {
-					Tienda t = juego.getTienda();
-					Entidad toAdd = t.getToAdd();
-					if (toAdd != null) 
-					{
-						juego.agregarEntidad(toAdd);
-						toAdd.getGrafico().setLocation(p);
-						graficos.add(toAdd.getGrafico());
-						agregarGrafico(toAdd.getGrafico(), x, y);
-						juego.getTienda().setNextToAdd(null);
-					}
-				}
-
-			}
-		}
+		setComponentZOrder(background, 0);
 	}
 
 	// Agrega un nuevo gráfico al mapa en las coordeanadas dadas.
-	public void agregarGrafico(Grafico toAdd, int clickX, int clickY) {
-		toAdd.setLocation(new Point(clickX, clickY));
+	public void agregarGrafico(Grafico toAdd, Point p) {
+		toAdd.setLocation(p);
 		this.graficos.add(toAdd);
 		this.add(toAdd);
 		this.setComponentZOrder(toAdd, 0);
 		this.repaint();
+		System.out.println("Agregado un gráfico en la posición " + p);
 	}
 
 	public void quitarGrafico(Grafico toRem) {
 		Point p = toRem.getLocation();
-		p.setLocation(p.getX() + toRem.getWidth(), p.getY());
 		posAliadas.remove(p);
 		graficos.remove(toRem);
 		remove(toRem);
@@ -118,4 +92,37 @@ public class Mapa extends JPanel {
 			return (((y - playZoneY) / rowSize()) * rowSize()) + playZoneY;
 		}
 	}
+	
+	// Oyente del mapa
+	private class MapListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) 
+		{
+			Tienda t = juego.getTienda();
+			Entidad toAdd = t.getToAdd();
+
+			if (toAdd != null) 
+			{
+				int x = fixX(e.getX());
+				int y = fixY(e.getY());
+
+				if (y > -1) 
+				{
+					Point p = new Point(x, y);
+					Grafico g = posAliadas.get(p);
+					if (g == null) 
+					{
+						posAliadas.put(p, toAdd.getGrafico());
+						juego.agregarEntidad(toAdd);
+						agregarGrafico(toAdd.getGrafico(), p);
+						juego.getTienda().setNextToAdd(null);
+					}
+					else
+						System.out.println("No puede aregarse un gráfico en la posición " + p);
+
+				}
+			}
+		}
+	}
+
 }

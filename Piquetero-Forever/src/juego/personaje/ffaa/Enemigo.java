@@ -18,6 +18,7 @@ public abstract class Enemigo extends Personaje
 		super(j);
 	}
 	
+	@Override
 	public void aceptar(Visitor v)
 	{
 		v.visitarFFAA(this);

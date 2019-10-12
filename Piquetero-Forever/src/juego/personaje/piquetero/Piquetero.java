@@ -27,9 +27,10 @@ public abstract class Piquetero extends Personaje
 		return precio;
 	}
 	
-	public void vender()
+	@Override
+	public void vender() 
 	{
-		this.juego.gastarMonedas(-(this.precio));
+		this.juego.gastarMonedas(-(this.precio/2));
 		this.juego.quitarEntidad(this);
 	}
 }
