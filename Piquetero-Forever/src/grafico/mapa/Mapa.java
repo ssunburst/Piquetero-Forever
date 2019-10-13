@@ -27,6 +27,9 @@ public class Mapa extends JPanel {
 	protected final int playZoneY = 113;
 	protected boolean vender;
 
+	/*
+	 * Constructor de la clase.
+	 */
 	public Mapa(Juego j) {
 		this.setLayout(null);
 		this.juego = j;
@@ -51,7 +54,9 @@ public class Mapa extends JPanel {
 		setComponentZOrder(background, 0);
 	}
 
-	// Agrega un nuevo gráfico al mapa en las coordeanadas dadas.
+	/*
+	 * Agrega un nuevo gráfico al mapa en las coordeanadas dadas.
+	 */
 	public void agregarGrafico(Grafico toAdd, Point p) {
 		toAdd.setLocation(p);
 		this.graficos.add(toAdd);
@@ -63,7 +68,11 @@ public class Mapa extends JPanel {
 		System.out.println("Agregado un gráfico en la posición " + p);
 	}
 
-	public void quitarGrafico(Grafico toRem) {
+	/*
+	 * Remueve una entidad gráfica del mapa.
+	 */
+	public void quitarGrafico(Grafico toRem) 
+	{
 		Point p = toRem.getLocation();
 		posAliadas.remove(p);
 		graficos.remove(toRem);
@@ -71,43 +80,60 @@ public class Mapa extends JPanel {
 		this.repaint();
 	}
 
-	// Determina el ancho de cuadrícula del juego del mapa.
+	/*
+	 * Determina el ancho de cuadrícula del juego del mapa.
+	 */
 	public int colSize() {
 		return this.getWidth() / COLUMNAS;
 	}
 
-	// Determina el alto de cuadrícula del mapa
+	/*
+	 * Determina el alto de cuadrícula del mapa
+	 */
 	public int rowSize() {
 		return (this.getHeight() - playZoneY) / FILAS;
 	}
 
-	// Dada una coordenada y, lo mapea a su correspondiente en el ordenamiento
-	// fila-columna del mapa.
+	/*
+	 * Dada una coordenada y, lo mapea a su correspondiente en el ordenamiento
+	 * fila-columna del mapa.
+	 */
 	private int fixX(int x) 
 	{
 		x = (x / colSize()) * colSize();
-		if (x < (colSize()*COLUMNAS))
+		if ((0 <= x) && (x < colSize()*COLUMNAS))
 			return x;
 		else
 			return -1;
 
 	}
 
-	// Dada un valor y de una coordenada, lo mapea a su correspondiente en el
-	// ordenamiento fila-columna del mapa.
+	/*
+	 * Dado un valor y de una coordenada, lo mapea a su correspondiente en el
+	 * ordenamiento fila-columna del mapa.
+	 */
 	private int fixY(int y) {
 		if (y < 113)
-			return -1;
-		else {
-			return (((y - playZoneY) / rowSize()) * rowSize()) + playZoneY;
+			y = -1;
+		else 
+		{
+			y = (((y - playZoneY) / rowSize()) * rowSize()) + playZoneY;
+			if (y >= rowSize()*FILAS)
+				y = -1;
 		}
+		return y;
 	}
 
+	/*
+	 * Setea el parámetro booleano indicativo de si se está en modo vender.
+	 */
 	public void setVender(boolean v) {
 		vender = v;
 	}
 
-	// Oyente del mapa
+	/*
+	 * Oyente del mapa.
+	 */
 	private class MapListener extends MouseAdapter {
 		@Override
 		public void mouseReleased(MouseEvent e) {
