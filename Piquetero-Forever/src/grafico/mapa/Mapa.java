@@ -83,8 +83,13 @@ public class Mapa extends JPanel {
 
 	// Dada una coordenada y, lo mapea a su correspondiente en el ordenamiento
 	// fila-columna del mapa.
-	private int fixX(int x) {
-		return (x / colSize()) * colSize();
+	private int fixX(int x) 
+	{
+		x = (x / colSize()) * colSize();
+		if (x < (colSize()*COLUMNAS))
+			return x;
+		else
+			return -1;
 
 	}
 
@@ -122,7 +127,7 @@ public class Mapa extends JPanel {
 					juego.getGUI().setearBotonVender(true);
 				}
 			} else if (toAdd != null) {
-				if (y > -1) {
+				if ((y > -1) && (x > -1)) {
 
 					Grafico g = posAliadas.get(p);
 					if (g == null) {
