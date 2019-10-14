@@ -1,4 +1,4 @@
-package juego.personaje.proyectil;
+package juego.entidad.proyectil;
 
 import juego.Juego;
 import visitor.*;

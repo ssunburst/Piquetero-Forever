@@ -1,9 +1,10 @@
-package juego;
+package juego.entidad;
 
 import javax.swing.JComponent;
 import javax.swing.Icon;
 import java.awt.Point;
 import grafico.Grafico;
+import juego.Juego;
 import visitor.Visitor;
 
 public abstract class Entidad
@@ -36,6 +37,7 @@ public abstract class Entidad
 	public void morir()
 	{
 		// Animaciones y otres
+		this.grafico.setearImagen(Grafico.MORIR);
 		juego.quitarEntidad(this);
 	}
 	
@@ -68,7 +70,9 @@ public abstract class Entidad
 	public void atacar(Entidad e)
 	{
 		// AGREGAR animación y otres.
+		this.grafico.setearImagen(Grafico.ATACAR);
 		e.recibirDagno(this.dagno);
+		this.grafico.setearImagen(Grafico.IDLE);
 	}
 	
 	public void vender()

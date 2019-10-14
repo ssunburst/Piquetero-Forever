@@ -1,10 +1,10 @@
-package juego.personaje.ffaa;
+package juego.entidad.personaje.ffaa;
 
 import grafico.Grafico;
 import juego.Juego;
-import juego.Entidad;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.Personaje;
 import juego.objeto.Objeto;
-import juego.personaje.Personaje;
 import visitor.Visitor;
 
 public abstract class Enemigo extends Personaje

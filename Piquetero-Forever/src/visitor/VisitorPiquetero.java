@@ -1,10 +1,10 @@
 package visitor;
 
-import juego.personaje.ffaa.Enemigo;
-import juego.personaje.piquetero.Piquetero;
-import juego.personaje.proyectil.ProyectilAmigo;
-import juego.personaje.proyectil.ProyectilEnemigo; 
-import juego.Entidad;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.ffaa.Enemigo;
+import juego.entidad.personaje.piquetero.Piquetero;
+import juego.entidad.proyectil.ProyectilAmigo;
+import juego.entidad.proyectil.ProyectilEnemigo;
 
 public class VisitorPiquetero extends Visitor
 {

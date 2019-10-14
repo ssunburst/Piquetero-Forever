@@ -1,20 +1,33 @@
 package grafico;
 
 import javax.swing.*;
+
+import grafico.detector.DetectorColisiones;
+import juego.entidad.Entidad;
+
 import java.awt.*;
 import java.awt.event.*;
-import juego.Entidad;
+import java.lang.Iterable;
 
 public abstract class Grafico extends JLabel
 {
 	protected Icon[] imagenes;
 	protected Entidad entidad;
+	protected DetectorColisiones dc;
+	public static final int IDLE = 0;
+	public static final int ATACAR = 1;
+	public static final int MORIR = 2;
 	
-	public Grafico(Entidad e, int img)
+	public Grafico(Entidad e)
 	{
 		super();
 		this.entidad = e;
-		imagenes = new Icon[img];
+		imagenes = new Icon[3];
+	}
+	
+	public void setearImagen(int img)
+	{
+		this.setIcon(imagenes[img]);
 	}
 	
 	public Icon[] getImagenes() {
@@ -26,8 +39,8 @@ public abstract class Grafico extends JLabel
 		return this.entidad;
 	}
 	
-	public void setEntidad(Entidad e)
+	public Iterable<Entidad> detectarColisiones()
 	{
-		this.entidad = e;
-	} 
+		return this.dc.detectarColisiones();
+	}
 }

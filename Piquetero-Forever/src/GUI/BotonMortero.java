@@ -1,8 +1,9 @@
 package GUI;
 
-import juego.Entidad;
 import juego.Juego;
-import juego.personaje.piquetero.Mortero;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.piquetero.Mortero;
+
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;

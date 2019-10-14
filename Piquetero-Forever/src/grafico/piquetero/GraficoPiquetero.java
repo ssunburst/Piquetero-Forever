@@ -1,11 +1,13 @@
 package grafico.piquetero;
 
 import grafico.Grafico;
-import juego.Entidad;
+import grafico.detector.DetectorHaciaDerecha;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.piquetero.Piquetero;
+
 import java.awt.Event;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import juego.personaje.piquetero.Piquetero;
 
 public class GraficoPiquetero extends Grafico
 {
@@ -13,7 +15,8 @@ public class GraficoPiquetero extends Grafico
 
 	public GraficoPiquetero(Piquetero e, int img) 
 	{
-		super(e, img);
+		super(e);
+		this.dc = new DetectorHaciaDerecha(this.entidad.getJuego(), this);
 	}
-
+	
 }

@@ -1,8 +1,8 @@
-package juego.personaje.ffaa;
+package juego.entidad.personaje.ffaa;
 
 import grafico.Grafico;
-import juego.Entidad;
 import juego.Juego;
+import juego.entidad.Entidad;
 
 public class Cachiporra extends Enemigo {
 	

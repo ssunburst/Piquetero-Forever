@@ -1,5 +1,7 @@
 package juego;
 
+import juego.entidad.Entidad;
+
 public class Tienda 
 {
 	protected Entidad aColocar;

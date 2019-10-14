@@ -1,8 +1,8 @@
-package juego.personaje;
+package juego.entidad.personaje;
 
 import grafico.Grafico;
-import juego.Entidad;
 import juego.Juego;
+import juego.entidad.Entidad;
 
 public abstract class Personaje extends Entidad
 {

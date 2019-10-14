@@ -1,4 +1,4 @@
-package juego.personaje.piquetero;
+package juego.entidad.personaje.piquetero;
 
 import grafico.piquetero.GraficoMortero;
 import juego.Juego;

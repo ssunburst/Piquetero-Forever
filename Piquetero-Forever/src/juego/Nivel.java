@@ -1,7 +1,9 @@
 package juego;
 import java.util.List;
+
+import juego.entidad.personaje.ffaa.Enemigo;
+
 import java.util.LinkedList;
-import juego.personaje.ffaa.Enemigo;
 
 public class Nivel 
 {

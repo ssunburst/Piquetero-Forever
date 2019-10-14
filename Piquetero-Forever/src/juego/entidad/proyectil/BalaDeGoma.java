@@ -1,8 +1,8 @@
-package juego.personaje.proyectil;
+package juego.entidad.proyectil;
 
 import grafico.Grafico;
-import juego.Entidad;
 import juego.Juego;
+import juego.entidad.Entidad;
 
 public class BalaDeGoma extends ProyectilEnemigo
 {

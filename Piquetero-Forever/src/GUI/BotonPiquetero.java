@@ -1,7 +1,7 @@
 package GUI;
 
 import juego.Juego;
-import juego.personaje.piquetero.Piquetero;
+import juego.entidad.personaje.piquetero.Piquetero;
 
 public abstract class BotonPiquetero extends BotonTienda
 {

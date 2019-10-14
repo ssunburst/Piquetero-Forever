@@ -1,10 +1,10 @@
-package juego.personaje.piquetero;
+package juego.entidad.personaje.piquetero;
 
 import grafico.Grafico;
-import juego.Entidad;
-import juego.personaje.Personaje;
 import visitor.Visitor;
 import juego.Juego;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.Personaje;
 
 public abstract class Piquetero extends Personaje 
 {	

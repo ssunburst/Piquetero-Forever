@@ -5,8 +5,7 @@ import javax.swing.JComponent;
 import javax.swing.Icon;
 import java.awt.Point;
 import grafico.Grafico;
-
-import juego.Entidad;
+import juego.entidad.Entidad;
 
 public class Objeto
 {

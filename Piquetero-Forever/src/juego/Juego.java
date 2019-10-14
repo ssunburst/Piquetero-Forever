@@ -1,5 +1,7 @@
 package juego;
 import grafico.mapa.Mapa;
+import juego.entidad.Entidad;
+
 import java.util.List;
 
 import org.omg.CORBA.FREE_MEM;

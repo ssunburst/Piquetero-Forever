@@ -1,8 +1,8 @@
 package visitor;
 
-import juego.personaje.ffaa.Enemigo;
-import juego.personaje.piquetero.Piquetero;
-import juego.Entidad;
+import juego.entidad.Entidad;
+import juego.entidad.personaje.ffaa.Enemigo;
+import juego.entidad.personaje.piquetero.Piquetero;
 
 // Visitor para unidades que no visitan a otras.
 public class VisitorFFAA extends Visitor

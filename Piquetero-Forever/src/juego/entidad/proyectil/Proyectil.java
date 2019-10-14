@@ -1,13 +1,14 @@
-package juego.personaje.proyectil;
+package juego.entidad.proyectil;
 
 import grafico.Grafico;
-import juego.Entidad;
 import visitor.Visitor;
 import juego.Juego;
+import juego.entidad.Entidad;
 
 public abstract class Proyectil extends Entidad
 {
 	protected int alcance;
+	protected double distanciaRecorrida;
 	
 	public Proyectil(Juego j)
 	{
@@ -35,5 +36,20 @@ public abstract class Proyectil extends Entidad
 	{
 		super.atacar(e);
 		this.morir();
+	}
+	
+	public boolean alcanzoDestino()
+	{
+		return distanciaRecorrida >= alcance;
+	}
+	
+	public double distanciaRecorrida()
+	{
+		return distanciaRecorrida;
+	}
+	
+	public void recorrerDistancia(double d)
+	{
+		distanciaRecorrida =+ d;
 	}
 }

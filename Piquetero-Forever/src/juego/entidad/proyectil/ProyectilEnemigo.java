@@ -1,7 +1,7 @@
-package juego.personaje.proyectil;
+package juego.entidad.proyectil;
 
-import juego.Entidad;
 import juego.Juego;
+import juego.entidad.Entidad;
 import visitor.VisitorFFAA;
 
 public abstract class ProyectilEnemigo extends Proyectil

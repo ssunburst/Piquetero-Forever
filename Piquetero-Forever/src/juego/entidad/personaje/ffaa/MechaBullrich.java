@@ -1,4 +1,4 @@
-package juego.personaje.ffaa;
+package juego.entidad.personaje.ffaa;
 
 import juego.Juego;
 

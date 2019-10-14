@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.LinkedList;
 import grafico.Grafico;
 import juego.Tienda;
-import juego.Entidad;
+import juego.entidad.Entidad;
 import juego.Juego;
 import java.util.Map;
 import java.util.HashMap;
@@ -52,6 +52,14 @@ public class Mapa extends JPanel {
 		background.setIcon(new ImageIcon(this.getClass().getResource("/imagenes/mapa.png")));
 		this.add(background);
 		setComponentZOrder(background, 0);
+	}
+	
+	/*
+	 * Retorna una colección iterable de los graficos actualmente presentes en el mapa.
+	 */
+	public Iterable<Grafico> graficos()
+	{
+		return graficos;
 	}
 
 	/*
