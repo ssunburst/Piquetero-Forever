@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import juego.Juego;
-import grafico.ffaa.GraficoMBullrich;
+import grafico.enemigo.GraficoMBullrich;
 import grafico.mapa.Mapa;
 import java.util.List;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package grafico.ffaa;
+package grafico.enemigo;
 
 import java.awt.*;
 import java.awt.event.*;
