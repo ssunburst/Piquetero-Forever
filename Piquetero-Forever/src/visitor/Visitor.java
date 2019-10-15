@@ -1,7 +1,7 @@
 package visitor;
 
 import juego.entidad.Entidad;
-import juego.entidad.personaje.ffaa.Enemigo;
+import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.piquetero.Piquetero;
 import juego.entidad.proyectil.Proyectil;
 import juego.entidad.proyectil.ProyectilAmigo;
@@ -18,5 +18,5 @@ public abstract class Visitor
 	
 	public abstract void visitarPiquetero(Piquetero e);
 	
-	public abstract void visitarFFAA(Enemigo e);
+	public abstract void visitarEnemigo(Enemigo e);
 }

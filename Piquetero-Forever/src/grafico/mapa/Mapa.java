@@ -14,8 +14,8 @@ import juego.Juego;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Mapa extends JPanel {
-	protected Image img;
+public class Mapa extends JPanel 
+{
 	protected Juego juego;
 	protected JLabel background;
 
@@ -113,7 +113,6 @@ public class Mapa extends JPanel {
 			return x;
 		else
 			return -1;
-
 	}
 
 	/*

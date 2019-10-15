@@ -17,6 +17,7 @@ public class GraficoPiquetero extends Grafico
 	{
 		super(e);
 		this.dc = new DetectorHaciaDerecha(this.entidad.getJuego(), this);
+		this.direccion = DERECHA;
 	}
 	
 }

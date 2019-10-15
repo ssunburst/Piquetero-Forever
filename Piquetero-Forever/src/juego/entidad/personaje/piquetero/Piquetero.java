@@ -5,6 +5,7 @@ import visitor.Visitor;
 import juego.Juego;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.Personaje;
+import visitor.VisitorPiquetero;
 
 public abstract class Piquetero extends Personaje 
 {	
@@ -12,7 +13,8 @@ public abstract class Piquetero extends Personaje
 	public Piquetero(Juego j) 
 	{
 		super(j);
-		velocidad = 0;
+		this.velocidad = 0;
+		this.visitor = new VisitorPiquetero(this);
 	}
 	
 	@Override

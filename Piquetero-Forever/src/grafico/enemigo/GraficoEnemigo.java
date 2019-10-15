@@ -10,5 +10,6 @@ public class GraficoEnemigo extends Grafico
 	{
 		super(e);
 		this.dc = new DetectorHaciaIzquierda(this.entidad.getJuego(), this);
+		this.direccion = IZQUIERDA;
 	}
 }

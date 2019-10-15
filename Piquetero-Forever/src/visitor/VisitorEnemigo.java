@@ -1,14 +1,14 @@
 package visitor;
 
 import juego.entidad.Entidad;
-import juego.entidad.personaje.ffaa.Enemigo;
+import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.piquetero.Piquetero;
 
 // Visitor para unidades que no visitan a otras.
-public class VisitorFFAA extends Visitor
+public class VisitorEnemigo extends Visitor
 {
 
-	public VisitorFFAA(Entidad e) 
+	public VisitorEnemigo(Entidad e) 
 	{
 		super(e);
 	}
@@ -20,6 +20,6 @@ public class VisitorFFAA extends Visitor
 	}
 
 	@Override
-	public void visitarFFAA(Enemigo e) {}
+	public void visitarEnemigo(Enemigo e) {}
 	
 }

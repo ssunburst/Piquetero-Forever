@@ -6,6 +6,7 @@ import java.awt.Point;
 import grafico.Grafico;
 import juego.Juego;
 import visitor.Visitor;
+import java.util.Iterator;
 
 public abstract class Entidad
 {
@@ -65,7 +66,18 @@ public abstract class Entidad
 		return velocidad;
 	}
 	
-	public abstract void accionar();
+	public void accionar()
+	{
+		Iterable<Entidad> cols = this.grafico.detectarColisiones();
+		Iterator<Entidad> colsIt = cols.iterator();
+		if (colsIt.hasNext())
+		{
+			while(colsIt.hasNext())
+				colsIt.next().aceptar(this.visitor);
+		}
+		else
+			this.grafico.mover();
+	}
 	
 	public void atacar(Entidad e)
 	{

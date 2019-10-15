@@ -2,14 +2,14 @@ package juego.entidad.proyectil;
 
 import juego.Juego;
 import juego.entidad.Entidad;
-import visitor.VisitorFFAA;
+import visitor.VisitorEnemigo;
 
 public abstract class ProyectilEnemigo extends Proyectil
 {
 
 	public ProyectilEnemigo(Juego j) {
 		super(j);
-		this.visitor = new VisitorFFAA(this);
+		this.visitor = new VisitorEnemigo(this);
 	}
 	
 	@Override

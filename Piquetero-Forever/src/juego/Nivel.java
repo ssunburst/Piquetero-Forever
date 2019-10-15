@@ -1,7 +1,7 @@
 package juego;
 import java.util.List;
 
-import juego.entidad.personaje.ffaa.Enemigo;
+import juego.entidad.personaje.enemigo.Enemigo;
 
 import java.util.LinkedList;
 
