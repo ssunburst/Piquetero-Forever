@@ -50,10 +50,4 @@ public abstract class Personaje extends Entidad
 		}
 		return ret;
 	}
-	
-	@Override
-	public void accionar() 
-	{
-		// NO DEBERIA ESTAR IMPLEMENTADO ACA		
-	}
 }

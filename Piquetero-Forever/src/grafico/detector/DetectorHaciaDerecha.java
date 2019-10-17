@@ -8,25 +8,23 @@ import java.util.List;
 import grafico.Grafico;
 import grafico.mapa.Mapa;
 
-public class DetectorHaciaDerecha extends DetectorColisiones 
-{
-	public DetectorHaciaDerecha(Juego j, Grafico g) 
-	{
-		super(j,g);
+public class DetectorHaciaDerecha extends DetectorColisiones {
+	public DetectorHaciaDerecha(Juego j, Grafico g) {
+		super(j, g);
 	}
-	
+
 	@Override
-	public Iterable<Entidad> detectarColisiones() 
-	{
+	public Iterable<Entidad> detectarColisiones() {
 		List<Entidad> ret = new LinkedList<Entidad>();
 		Mapa m = grafico.getEntidad().getJuego().getMapa();
-		for (Grafico g: m.graficos())
-		{
-			if (this.grafico.getY() == g.getY())
-			{
-				int x = this.grafico.getX() + this.grafico.getWidth();
-				if ((g.getX() <= x) && (x <= g.getX() + g.getWidth()));
+		for (Grafico g : m.graficos()) {
+			if (g != this.grafico) {
+				if (this.grafico.getY() == g.getY()) {
+					int x = this.grafico.getX() + this.grafico.getWidth();
+					if ((g.getX() <= x) && (x <= g.getX() + g.getWidth()))
+						;
 					ret.add(g.getEntidad());
+				}
 			}
 		}
 		return ret;

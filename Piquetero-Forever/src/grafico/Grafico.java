@@ -17,16 +17,15 @@ public abstract class Grafico extends JLabel
 	protected int direccion;
 	protected final int DERECHA = 1;
 	protected final int IZQUIERDA = -1;
-	public static final int IDLE = 0;
-	public static final int ATACAR = 1;
-	public static final int MORIR = 2;
 	
 	
 	public Grafico(Entidad e)
 	{
 		super();
 		this.entidad = e;
-		imagenes = new Icon[3];
+		setearImagenes();
+		this.setIcon(imagenes[posIdle()]);
+		this.setSize(new Dimension(imagenes[0].getIconWidth(), imagenes[0].getIconWidth()));
 	}
 	
 	public void setearImagen(int img)
@@ -51,7 +50,27 @@ public abstract class Grafico extends JLabel
 	public void mover()
 	{
 		Point p = this.getLocation();
-		double x = p.getX();
-		p.setLocation(x + this.entidad.getVelocidad()*direccion, p.getY());			
+		double x = p.getX() + this.entidad.getVelocidad()*direccion;
+		double y = p.getY();
+		p.setLocation(x, y);
+		this.setLocation(p);		
+		this.repaint();
+	}
+	
+	protected abstract void setearImagenes();
+	
+	public int posIdle()
+	{
+		return 0;
+	}
+	
+	public int posAtaque()
+	{
+		return 1;
+	}
+	
+	public int posMuerte()
+	{
+		return 2;
 	}
 }

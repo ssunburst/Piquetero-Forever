@@ -37,8 +37,8 @@ public abstract class Entidad
 	
 	public void morir()
 	{
-		// Animaciones y otres
-		this.grafico.setearImagen(Grafico.MORIR);
+		// TODO Animaciones y otres
+		this.grafico.setearImagen(grafico.posMuerte());
 		juego.quitarEntidad(this);
 	}
 	
@@ -82,9 +82,9 @@ public abstract class Entidad
 	public void atacar(Entidad e)
 	{
 		// AGREGAR animación y otres.
-		this.grafico.setearImagen(Grafico.ATACAR);
+		this.grafico.setearImagen(grafico.posAtaque());
 		e.recibirDagno(this.dagno);
-		this.grafico.setearImagen(Grafico.IDLE);
+		this.grafico.setearImagen(grafico.posIdle());
 	}
 	
 	public void vender()

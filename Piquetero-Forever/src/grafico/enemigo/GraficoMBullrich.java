@@ -6,18 +6,21 @@ import javax.swing.*;
 import grafico.Grafico;
 import juego.entidad.Entidad;
 
-public class GraficoMBullrich extends Grafico
+public class GraficoMBullrich extends GraficoEnemigo
 {
 	public GraficoMBullrich(Entidad e)
 	{
 		super(e);
-		this.imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/bul_atck.gif"));
-		this.imagenes[2] = null;
-		this.imagenes[3] = null;
-		this.setSize(new Dimension(imagenes[1].getIconWidth(), imagenes[1].getIconWidth()));
-		this.setMinimumSize(new Dimension(imagenes[1].getIconWidth(), imagenes[1].getIconWidth()));
-		this.setMaximumSize(new Dimension(imagenes[1].getIconWidth(), imagenes[1].getIconWidth()));
-		this.setPreferredSize(new Dimension(imagenes[1].getIconWidth(), imagenes[1].getIconWidth()));
-		setIcon(imagenes[1]);
 	}
+
+	@Override
+	protected void setearImagenes() 
+	{
+		super.setearImagenes();
+		this.imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/bul_atck.gif"));
+		this.imagenes[1] = null;
+		this.imagenes[2] = null;	
+	}
+	
+	
 }

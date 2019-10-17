@@ -20,6 +20,9 @@ public class VisitorEnemigo extends Visitor
 	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) {}
+	public void visitarEnemigo(Enemigo e) 
+	{
+		this.entidad.getGrafico().mover();
+	}
 	
 }

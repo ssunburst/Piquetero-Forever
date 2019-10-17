@@ -5,19 +5,25 @@ import grafico.detector.DetectorHaciaDerecha;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.piquetero.Piquetero;
 
+import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.Icon;
 
-public class GraficoPiquetero extends Grafico
+public abstract class GraficoPiquetero extends Grafico
 {
-	Piquetero entidad;
-
-	public GraficoPiquetero(Piquetero e, int img) 
+	public GraficoPiquetero(Entidad e) 
 	{
 		super(e);
 		this.dc = new DetectorHaciaDerecha(this.entidad.getJuego(), this);
 		this.direccion = DERECHA;
+		this.setSize(new Dimension(120, 100));
 	}
 	
+	@Override
+	protected void setearImagenes() 
+	{
+		imagenes = new Icon[3];
+	}
 }

@@ -1,4 +1,4 @@
-package GUI;
+package GUI.boton;
 
 import juego.Juego;
 import juego.entidad.Entidad;
@@ -8,12 +8,11 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class BotonMortero extends BotonPiquetero 
+public class BotonMortero extends BotonTienda 
 {
 	public BotonMortero(Juego j) 
 	{
-		super(j);
-		this.setText("Mortero");
+		super(j, "Mortero");
 	}
 
 	@Override

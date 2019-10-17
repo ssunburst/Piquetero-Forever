@@ -1,6 +1,11 @@
 package GUI;
 
 import javax.swing.*;
+
+import GUI.boton.BotonMortero;
+import GUI.boton.BotonSubZero;
+import GUI.boton.BotonTienda;
+
 import java.awt.*;
 import java.awt.event.*;
 import juego.Juego;
@@ -10,15 +15,16 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class GameGUI extends JFrame {
+	private Juego juego;
 	private JPanel pnTienda, pnPuntaje, pnMonedas;
 	private JLabel lblPuntaje, lblMonedas;
-	private Juego j;
+	private JLabel lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
-	private BotonTienda btnMortero;
+	private BotonTienda btnMortero, btnSubZero;
 	private JButton btnVender;
 
 	public GameGUI() {
-		j = new Juego(this);
+		juego = new Juego(this);
 		Container cp = this.getContentPane();
 
 		cp.setLayout(null);
@@ -35,25 +41,39 @@ public class GameGUI extends JFrame {
 		cp.add(pnTienda);
 
 		// Label de Puntaje
-		lblPuntaje = new JLabel("Puntaje: " + j.getPuntaje());
-		lblPuntaje.setFont(new Font("Serif", Font.PLAIN, 35));
-		lblPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
-		lblPuntaje.setBounds(50, 5, 400, 100);
-		cp.add(lblPuntaje);
-		cp.setComponentZOrder(lblPuntaje, 0);
+		lblSbraPuntaje = new JLabel("PUNTAJE   " + juego.getPuntaje());
+		lblSbraPuntaje.setFont(new Font("Arial black", Font.ITALIC, 35));
+		lblSbraPuntaje.setBounds(46, 34, 400, 35);
+		juego.getMapa().add(lblSbraPuntaje);
+		juego.getMapa().setComponentZOrder(lblSbraPuntaje, 0);
+		
+		lblPuntaje = new JLabel("PUNTAJE   " + juego.getPuntaje());
+		lblPuntaje.setFont(new Font("Arial black", Font.ITALIC, 35));
+		lblPuntaje.setBounds(50, 30, 400, 35);
+		lblPuntaje.setForeground(Color.white);
+		juego.getMapa().add(lblPuntaje);
+		juego.getMapa().setComponentZOrder(lblPuntaje, 0);
 
 		// Label de Monedas
-		lblMonedas = new JLabel("Turrodólares: " + j.getMonedas());
-		lblMonedas.setFont(new Font("Helvetica", Font.PLAIN, 35));
-		lblMonedas.setBorder(BorderFactory.createLineBorder(Color.black));
-		lblMonedas.setBounds(700, 5, 400, 100);
-		cp.add(lblMonedas);
-		cp.setComponentZOrder(lblMonedas, 0);
+		lblSbraMonedas = new JLabel("TURRODOLARES   " + juego.getMonedas());
+		lblSbraMonedas.setFont(new Font("Arial black", Font.ITALIC, 35));
+		lblSbraMonedas.setBounds(596, 34, 500, 35);
+		juego.getMapa().add(lblSbraMonedas);
+		juego.getMapa().setComponentZOrder(lblSbraMonedas, 0);
+		
+		lblMonedas = new JLabel("TURRODOLARES   " + juego.getMonedas());
+		lblMonedas.setFont(new Font("Arial black", Font.ITALIC, 35));
+		lblMonedas.setBounds(600, 30, 500, 35);
+		lblMonedas.setForeground(Color.WHITE);
+		juego.getMapa().add(lblMonedas);
+		juego.getMapa().setComponentZOrder(lblMonedas, 0);
+		
 
 		// Botones
-		btnMortero = new BotonMortero(j);
-//		btnMortero.setBounds(20, 20, btnMortero.getWidth(), btnMortero.getHeight());
+		btnMortero = new BotonMortero(juego);
+		btnSubZero = new BotonSubZero(juego);
 		lstBotones.add(btnMortero);
+		lstBotones.add(btnSubZero);
 
 		for (JButton b : lstBotones)
 			pnTienda.add(b);
@@ -62,16 +82,16 @@ public class GameGUI extends JFrame {
 		btnVender.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (j.entidades().iterator().hasNext()) {
+				if (juego.entidades().iterator().hasNext()) {
 					setearPanel(false);
-					j.getMapa().setVender(true);
+					juego.getMapa().setVender(true);
 					btnVender.setEnabled(false);
 				}
 			}
 		});
 		pnTienda.add(btnVender);
 
-		cp.add(j.getMapa());
+		cp.add(juego.getMapa());
 
 		this.setVisible(true);
 	}
@@ -80,25 +100,33 @@ public class GameGUI extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				new GameGUI();
+				GameGUI g = new GameGUI();
+				Thread t = new Thread(g.juego());
+				t.start();
 			}
 		});
-		;
 	}
 
 	public void actualizarPuntaje() {
-		this.lblPuntaje.setText("Puntaje: " + j.getPuntaje());
+		this.lblPuntaje.setText("Puntaje: " + juego.getPuntaje());
+		this.lblSbraPuntaje.setText("PUNTAJE   " + juego.getPuntaje());
 		lblPuntaje.repaint();
 	}
 
 	public void actualizarMonedas() {
-		this.lblMonedas.setText("Turrodólares: " + j.getMonedas());
+		this.lblMonedas.setText("TURRODOLARES   " + juego.getMonedas());
+		this.lblSbraMonedas.setText("TURRODOLARES   " + juego.getMonedas());
 		lblMonedas.repaint();
 	}
 
 	public void setearPanel(boolean but) {
 		for (JButton b : lstBotones)
 			b.setEnabled(but);
+	}
+	
+	public Juego juego()
+	{
+		return juego;
 	}
 	
 	public void setearBotonVender(boolean v)

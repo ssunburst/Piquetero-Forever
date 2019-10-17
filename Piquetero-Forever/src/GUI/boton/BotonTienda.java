@@ -1,4 +1,4 @@
-package GUI;
+package GUI.boton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,9 +15,10 @@ public abstract class BotonTienda extends JButton
 	protected Juego juego;
 	protected Entidad entidad;
 	
-	public BotonTienda(Juego j)
+	public BotonTienda(Juego j, String t)
 	{
 		this.setSize(new Dimension(80,20));
+		this.setText(t);
 		juego = j;
 		this.addActionListener(new ActionListener() {
 			
@@ -27,12 +28,11 @@ public abstract class BotonTienda extends JButton
 				{
 					Entidad e = crearEntidad(j);
 					
-					System.out.println("Monedas actuales: " + juego.getMonedas());
-					
 					if (juego.getMonedas() >= e.getPrecio()) 
 					{
 						juego.gastarMonedas(e.getPrecio());
 						juego.getTienda().setNextToAdd(e);
+						System.out.println("Tienda toadd " + j.getTienda().getToAdd());
 						juego.getGUI().setearPanel(false);
 						juego.getGUI().setearBotonVender(false);
 					}
@@ -46,6 +46,4 @@ public abstract class BotonTienda extends JButton
 	}
 
 	public abstract Entidad crearEntidad(Juego j);
-	
-	
 }

@@ -8,6 +8,7 @@ public class Mortero extends Piquetero
 	public Mortero(Juego j) 
 	{
 		super(j);
+		this.velocidad = 2;
 		this.precio = 100;
 		this.dagno = 70;
 		this.velocidadAtaque = 3;
