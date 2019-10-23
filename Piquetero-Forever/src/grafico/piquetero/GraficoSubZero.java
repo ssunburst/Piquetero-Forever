@@ -16,7 +16,6 @@ public class GraficoSubZero extends GraficoPiquetero
 	{
 		super.setearImagenes();
 		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/subzero_idle.gif"));
-//		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/subzero_atck.gif"));
 		imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/subzero_atck.gif"));
 		imagenes[2] = null;
 	}

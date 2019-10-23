@@ -7,43 +7,55 @@ import grafico.Grafico;
 import juego.Juego;
 import visitor.Visitor;
 import java.util.Iterator;
+import juego.accionador.Accionador;
+import juego.entidad.proyectil.Proyectil;
+import grafico.detector.DetectorColisiones;
 
-public abstract class Entidad
-{
+public abstract class Entidad {
 	protected Juego juego;
 	protected Grafico grafico;
+	protected Accionador accionador;
+	protected Visitor visitor;
+	protected DetectorColisiones detector;
+	protected Proyectil proyectil;
+
 	protected int dagno;
 	protected int precio;
 	protected int velocidad;
 	protected int vida;
-	protected Visitor visitor;
 	
-	
-	public Entidad(Juego j)
+	protected int direccion;
+	protected final int DERECHA = 1;
+	protected final int IZQUIERDA = -1;
+	protected final int ESTATICO = 0;
+
+	public Entidad(Juego j) 
 	{
 		this.juego = j;
 	}
 	
-	public int getPrecio()
+	public int getDireccion()
 	{
+		return direccion;
+	}
+
+	public int getPrecio() {
 		return precio;
 	}
-	
+
 	public int getVida() {
 		return vida;
 	}
 
 	public abstract void recibirDagno(int d);
-	
-	public void morir()
-	{
+
+	public void morir() {
 		// TODO Animaciones y otres
 		this.grafico.setearImagen(grafico.posMuerte());
-		juego.quitarEntidad(this);
+		juego.quitarLuego(this);
 	}
-	
-	public Visitor visitor()
-	{
+
+	public Visitor visitor() {
 		return visitor;
 	}
 
@@ -51,46 +63,49 @@ public abstract class Entidad
 		return juego;
 	}
 
-
 	public Grafico getGrafico() {
 		return grafico;
 	}
-
 
 	public int getDagno() {
 		return dagno;
 	}
 
-
 	public int getVelocidad() {
 		return velocidad;
 	}
-	
-	public void accionar()
+
+	public void accionar() 
 	{
-		Iterable<Entidad> cols = this.grafico.detectarColisiones();
-		Iterator<Entidad> colsIt = cols.iterator();
-		if (colsIt.hasNext())
-		{
-			while(colsIt.hasNext())
-				colsIt.next().aceptar(this.visitor);
-		}
-		else
-			this.grafico.mover();
+		accionador.accionar();
 	}
 	
-	public void atacar(Entidad e)
+	public void mover()
 	{
-		// AGREGAR animación y otres.
-		this.grafico.setearImagen(grafico.posAtaque());
-		e.recibirDagno(this.dagno);
-		this.grafico.setearImagen(grafico.posIdle());
+		Point p = grafico.getLocation();
+		double x = p.getX() + velocidad*direccion;
+		double y = p.getY();
+		p.setLocation(x, y);
+		grafico.setLocation(p);		
+		grafico.repaint();
+	}
+
+	public void atacar(Entidad e) 
+	{
+		accionador.atacar(e);
 	}
 	
-	public void vender()
+	public Proyectil getProyectil()
 	{
-		
+		return proyectil;
 	}
 	
+	public Iterable<Entidad> detectarColisiones()
+	{
+		return detector.detectarColisiones();
+	}
+
+	public void vender() {}
+
 	public abstract void aceptar(Visitor v);
 }

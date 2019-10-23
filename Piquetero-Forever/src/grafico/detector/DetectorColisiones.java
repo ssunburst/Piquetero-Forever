@@ -9,12 +9,12 @@ import grafico.Grafico;
 public abstract class DetectorColisiones 
 {
 	protected Juego juego;
-	protected Grafico grafico;
+	protected Entidad entidad;
 	
-	public DetectorColisiones(Juego j, Grafico g)
+	public DetectorColisiones(Juego j, Entidad e)
 	{
 		juego = j;
-		grafico = g;		
+		entidad = e;		
 	}
 	
 	public abstract Iterable<Entidad> detectarColisiones();

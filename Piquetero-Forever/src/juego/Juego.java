@@ -9,6 +9,7 @@ import org.omg.CORBA.FREE_MEM;
 
 import java.util.LinkedList;
 import GUI.GameGUI;
+import java.awt.Point;
 
 public class Juego implements Runnable {
 	protected int puntaje;
@@ -16,7 +17,11 @@ public class Juego implements Runnable {
 	protected Mapa mapa;
 	protected Nivel nivelActual;
 	protected Tienda tienda;
+	
 	protected List<Entidad> entidades;
+	protected List<Entidad> aAgregar;
+	protected List<Entidad> aQuitar;
+	
 	protected GameGUI gui;
 	protected boolean juegoActivo;
 
@@ -27,6 +32,8 @@ public class Juego implements Runnable {
 		mapa = new Mapa(this);
 		tienda = new Tienda(this);
 		entidades = new LinkedList<Entidad>();
+		aQuitar = new LinkedList<Entidad>();
+		aAgregar = new LinkedList<Entidad>();
 		juegoActivo = true;
 
 	}
@@ -68,8 +75,19 @@ public class Juego implements Runnable {
 		return this.entidades;
 	}
 
-	public void agregarEntidad(Entidad e) {
+	public synchronized void agregarEntidad(Entidad e, Point p) {
 		this.entidades.add(e);
+		this.mapa.agregarGrafico(e.getGrafico(), p);
+	}
+	
+	public void quitarLuego(Entidad e)
+	{
+		aQuitar.add(e);
+	}
+	
+	public void agregarLuego(Entidad e)
+	{
+		aAgregar.add(e);
 	}
 
 	public void quitarEntidad(Entidad e) {
@@ -98,10 +116,15 @@ public class Juego implements Runnable {
 	public void run() {
 		while (juegoActivo) {
 			this.accionar();
+			for (Entidad e: aQuitar)
+				quitarEntidad(e);
+			for (Entidad e: aAgregar)
+				agregarEntidad(e, e.getGrafico().getLocation());
+			aAgregar = new LinkedList<Entidad>();
 			this.mapa.repaint();
 			try {
 				Thread.sleep(100);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException ex) {
 
 			}
 		}

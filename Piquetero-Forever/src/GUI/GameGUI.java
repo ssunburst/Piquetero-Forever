@@ -9,10 +9,12 @@ import GUI.boton.BotonTienda;
 import java.awt.*;
 import java.awt.event.*;
 import juego.Juego;
+import juego.entidad.personaje.enemigo.MechaBullrich;
 import grafico.enemigo.GraficoMBullrich;
 import grafico.mapa.Mapa;
 import java.util.List;
 import java.util.LinkedList;
+import juego.entidad.Entidad;
 
 public class GameGUI extends JFrame {
 	private Juego juego;
@@ -91,6 +93,14 @@ public class GameGUI extends JFrame {
 		});
 		pnTienda.add(btnVender);
 
+//		--------------------------------------------------------------------
+//		TEST BULLRICH
+		
+		Entidad mb = new MechaBullrich(juego);
+		Point p = new Point(1087, juego.getMapa().rowSize()*3+113);
+		juego.agregarEntidad(mb, p);
+		System.out.println(mb.getGrafico().getLocation());
+		
 		cp.add(juego.getMapa());
 
 		this.setVisible(true);

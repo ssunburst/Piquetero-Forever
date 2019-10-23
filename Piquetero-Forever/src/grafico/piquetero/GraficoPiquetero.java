@@ -16,9 +16,7 @@ public abstract class GraficoPiquetero extends Grafico
 	public GraficoPiquetero(Entidad e) 
 	{
 		super(e);
-		this.dc = new DetectorHaciaDerecha(this.entidad.getJuego(), this);
-		this.direccion = DERECHA;
-		this.setSize(new Dimension(120, 100));
+		this.setSize(new Dimension(119, 100));
 	}
 	
 	@Override

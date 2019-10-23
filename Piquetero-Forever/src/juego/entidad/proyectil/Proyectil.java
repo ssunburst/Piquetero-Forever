@@ -1,9 +1,11 @@
 package juego.entidad.proyectil;
 
 import grafico.Grafico;
-import visitor.Visitor;
 import juego.Juego;
+import juego.accionador.AccionadorProyectil;
 import juego.entidad.Entidad;
+import visitor.Visitor;
+import java.awt.Point;
 
 public abstract class Proyectil extends Entidad
 {
@@ -13,6 +15,7 @@ public abstract class Proyectil extends Entidad
 	public Proyectil(Juego j)
 	{
 		super(j);
+		this.accionador = new AccionadorProyectil(this);
 	}
 	
 	public int getAlcance() {
@@ -28,14 +31,7 @@ public abstract class Proyectil extends Entidad
 	@Override
 	public void aceptar(Visitor v) 
 	{
-		// Los proyectiles no son visitados.
-	}
-	
-	@Override
-	public void atacar(Entidad e) 
-	{
-		super.atacar(e);
-		this.morir();
+		v.visitarDisparo(this);
 	}
 	
 	public boolean alcanzoDestino()
@@ -52,4 +48,6 @@ public abstract class Proyectil extends Entidad
 	{
 		distanciaRecorrida =+ d;
 	}
+	
+	public abstract Proyectil clonar(Point p);
 }

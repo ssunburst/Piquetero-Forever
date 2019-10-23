@@ -4,7 +4,6 @@ import juego.entidad.Entidad;
 import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.piquetero.Piquetero;
 
-// Visitor para unidades que no visitan a otras.
 public class VisitorEnemigo extends Visitor
 {
 
@@ -22,7 +21,7 @@ public class VisitorEnemigo extends Visitor
 	@Override
 	public void visitarEnemigo(Enemigo e) 
 	{
-		this.entidad.getGrafico().mover();
+		
 	}
 	
 }

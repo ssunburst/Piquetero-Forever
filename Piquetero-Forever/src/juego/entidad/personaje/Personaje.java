@@ -2,24 +2,16 @@ package juego.entidad.personaje;
 
 import grafico.Grafico;
 import juego.Juego;
+import juego.accionador.Accionador;
 import juego.entidad.Entidad;
 
 public abstract class Personaje extends Entidad
 {
-	protected int velocidadAtaque;
 	protected int armadura;
 	
 	public Personaje(Juego j) 
 	{
 		super(j);
-	}
-	
-	public int getVelocidadAtaque() {
-		return velocidadAtaque;
-	}
-
-	public void setVelocidadAtaque(int velocidadAtaque) {
-		this.velocidadAtaque = velocidadAtaque;
 	}
 
 	public int getArmadura() {

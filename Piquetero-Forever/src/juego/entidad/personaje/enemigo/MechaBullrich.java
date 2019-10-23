@@ -1,16 +1,24 @@
 package juego.entidad.personaje.enemigo;
 
+import grafico.enemigo.GraficoMBullrich;
 import juego.Juego;
+import juego.accionador.AccionadorRango;
+import juego.entidad.proyectil.BolaDeFuego;
+import visitor.DummyVisitor;
+import visitor.Visitor;
+import visitor.VisitorEnemigo;
 
 public class MechaBullrich extends Enemigo {
 	
 	public MechaBullrich(Juego j)
 	{
 		super(j);
-		this.armadura = 100;
-		this.dagno = 100;
-		this.velocidad = 10;
-		this.vida = 700;
-		this.grafico = null;
+		this.proyectil = new BolaDeFuego(j);
+		this.armadura = 0;
+		this.accionador = new AccionadorRango(this, 50);
+		this.dagno = 10;
+		this.velocidad = 2;
+		this.vida = 100;
+		this.grafico = new GraficoMBullrich(this);
 	}
 }

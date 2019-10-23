@@ -65,7 +65,7 @@ public class Mapa extends JPanel
 	/*
 	 * Agrega un nuevo gráfico al mapa en las coordeanadas dadas.
 	 */
-	public void agregarGrafico(Grafico toAdd, Point p) {
+	public synchronized void agregarGrafico(Grafico toAdd, Point p) {
 		toAdd.setLocation(p);
 		this.graficos.add(toAdd);
 		this.add(toAdd);
@@ -73,13 +73,12 @@ public class Mapa extends JPanel
 		this.juego.getGUI().setearPanel(true);
 		this.juego.getGUI().setearBotonVender(true);
 		this.repaint();
-		System.out.println("Agregado un gráfico en la posición " + p);
 	}
 
 	/*
 	 * Remueve una entidad gráfica del mapa.
 	 */
-	public void quitarGrafico(Grafico toRem) 
+	public synchronized void quitarGrafico(Grafico toRem) 
 	{
 		Point p = toRem.getLocation();
 		posAliadas.remove(p);
@@ -165,8 +164,7 @@ public class Mapa extends JPanel
 					Grafico g = posAliadas.get(p);
 					if (g == null) {
 						posAliadas.put(p, toAdd.getGrafico());
-						juego.agregarEntidad(toAdd);
-						agregarGrafico(toAdd.getGrafico(), p);
+						juego.agregarEntidad(toAdd, p);
 						juego.getTienda().setNextToAdd(null);
 					}
 

@@ -19,4 +19,9 @@ public abstract class Visitor
 	public abstract void visitarPiquetero(Piquetero e);
 	
 	public abstract void visitarEnemigo(Enemigo e);
+	
+	public void visitarDisparo(Entidad e)
+	{
+		
+	}
 }
