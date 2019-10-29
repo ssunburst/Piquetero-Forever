@@ -1,5 +1,7 @@
 package juego.entidad.personaje.enemigo;
 
+import java.awt.Point;
+
 import grafico.Grafico;
 import grafico.detector.DetectorHaciaIzquierda;
 import juego.Juego;
@@ -27,5 +29,25 @@ public abstract class Enemigo extends Personaje
 	public void aceptar(Visitor v)
 	{
 		v.visitarEnemigo(this);
+	}
+	
+	@Override
+	public void morir() {
+		super.morir();
+		this.juego.ganarPuntos(this.puntaje);
+		this.juego.ganarMonedas(this.recompensa);
+	}
+	
+	@Override
+	public void mover() {
+		super.mover();
+		comprobarFinalizacion();
+	}
+	
+	public void comprobarFinalizacion()
+	{
+		Point p = this.grafico.getLocation();
+		if (p.getX() + this.grafico.getWidth() == 0)
+			this.juego.terminarJuego();
 	}
 }

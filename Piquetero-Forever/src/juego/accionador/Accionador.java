@@ -15,6 +15,11 @@ public abstract class Accionador
 		demoraConsumida = 0;
 	}
 	
+	public Accionador(Entidad e)
+	{
+		this(e, 0);
+	}
+	
 	public abstract void accionar();
 	
 	public abstract void atacar(Entidad e);

@@ -6,7 +6,6 @@ import juego.entidad.Entidad;
 
 public class AccionadorMelee extends Accionador
 {
-	
 	protected boolean estadoAtaque;
 	
 	public AccionadorMelee(Entidad e, int d) 

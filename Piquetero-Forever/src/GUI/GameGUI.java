@@ -98,7 +98,8 @@ public class GameGUI extends JFrame {
 		
 		Entidad mb = new MechaBullrich(juego);
 		Point p = new Point(1087, juego.getMapa().rowSize()*3+113);
-		juego.agregarEntidad(mb, p);
+		mb.getGrafico().setLocation(p);
+		juego.agregarLuego(mb);
 		System.out.println(mb.getGrafico().getLocation());
 		
 		cp.add(juego.getMapa());
@@ -118,7 +119,7 @@ public class GameGUI extends JFrame {
 	}
 
 	public void actualizarPuntaje() {
-		this.lblPuntaje.setText("Puntaje: " + juego.getPuntaje());
+		this.lblPuntaje.setText("PUNTAJE   " + juego.getPuntaje());
 		this.lblSbraPuntaje.setText("PUNTAJE   " + juego.getPuntaje());
 		lblPuntaje.repaint();
 	}
@@ -127,11 +128,6 @@ public class GameGUI extends JFrame {
 		this.lblMonedas.setText("TURRODOLARES   " + juego.getMonedas());
 		this.lblSbraMonedas.setText("TURRODOLARES   " + juego.getMonedas());
 		lblMonedas.repaint();
-	}
-
-	public void setearPanel(boolean but) {
-		for (JButton b : lstBotones)
-			b.setEnabled(but);
 	}
 	
 	public Juego juego()
@@ -142,6 +138,16 @@ public class GameGUI extends JFrame {
 	public void setearBotonVender(boolean v)
 	{
 		btnVender.setEnabled(v);
+	}
+	
+	public void setearPanel(boolean but) {
+		for (JButton b : lstBotones)
+			b.setEnabled(but);
+	}
+	
+	public void mostrarFinalizacion()
+	{
+		JOptionPane.showMessageDialog(this, "CAJETA");
 	}
 
 }

@@ -5,12 +5,12 @@ import java.util.Iterator;
 
 public class AccionadorProyectil extends Accionador 
 {
+	protected boolean ataque;
+	
 	public AccionadorProyectil(Entidad e) {
-		super(e, 0);
+		super(e);
 		ataque = false;
 	}
-
-	protected boolean ataque;
 	
 	@Override
 	public void accionar() 
@@ -21,14 +21,13 @@ public class AccionadorProyectil extends Accionador
 			colsIt.next().aceptar(entidad.visitor());
 		if (!ataque)
 			entidad.mover();
-		
 	}
 
 	@Override
 	public void atacar(Entidad e) 
 	{
 		e.recibirDagno(entidad.getDagno());
-		entidad.getJuego().quitarLuego(entidad);
+		entidad.morir();
 		ataque = true;
 	}
 

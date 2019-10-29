@@ -15,6 +15,7 @@ public class Juego implements Runnable {
 	protected int puntaje;
 	protected int monedas;
 	protected Mapa mapa;
+	
 	protected Nivel nivelActual;
 	protected Tienda tienda;
 	
@@ -42,8 +43,15 @@ public class Juego implements Runnable {
 		return puntaje;
 	}
 
-	public void setPuntaje(int p) {
-		puntaje = p;
+	public void ganarPuntos(int p) {
+		puntaje +=p;
+		this.gui.actualizarPuntaje();
+	}
+	
+	public void ganarMonedas(int m)
+	{
+		this.monedas+= m;
+		this.gui.actualizarMonedas();
 	}
 
 	public Nivel getNivelActual() {
@@ -75,7 +83,7 @@ public class Juego implements Runnable {
 		return this.entidades;
 	}
 
-	public synchronized void agregarEntidad(Entidad e, Point p) {
+	public void agregarEntidad(Entidad e, Point p) {
 		this.entidades.add(e);
 		this.mapa.agregarGrafico(e.getGrafico(), p);
 	}
@@ -111,6 +119,14 @@ public class Juego implements Runnable {
 	public void terminarJuego() {
 		juegoActivo = false;
 	}
+	
+	public void finalizar()
+	{
+		entidades.clear();
+		aQuitar.clear();
+		aAgregar.clear();
+		gui.mostrarFinalizacion();		
+	}
 
 	@Override
 	public void run() {
@@ -128,5 +144,6 @@ public class Juego implements Runnable {
 
 			}
 		}
+		finalizar();
 	}
 }

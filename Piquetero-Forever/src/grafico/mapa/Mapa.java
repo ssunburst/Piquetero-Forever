@@ -162,9 +162,11 @@ public class Mapa extends JPanel
 				if ((y > -1) && (x > -1)) {
 
 					Grafico g = posAliadas.get(p);
-					if (g == null) {
+					if (g == null) 
+					{
+						toAdd.getGrafico().setLocation(p);
 						posAliadas.put(p, toAdd.getGrafico());
-						juego.agregarEntidad(toAdd, p);
+						juego.agregarLuego(toAdd);
 						juego.getTienda().setNextToAdd(null);
 					}
 
