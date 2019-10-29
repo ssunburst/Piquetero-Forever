@@ -3,6 +3,9 @@ package GUI;
 import javax.swing.*;
 
 import GUI.boton.BotonMortero;
+import GUI.boton.BotonPersonaje3;
+import GUI.boton.BotonPersonaje4;
+import GUI.boton.BotonPersonaje5;
 import GUI.boton.BotonSubZero;
 import GUI.boton.BotonTienda;
 
@@ -37,7 +40,7 @@ public class GameGUI extends JFrame {
 		lstBotones = new LinkedList<JButton>();
 		// Panel tienda
 		pnTienda = new JPanel();
-		pnTienda.setLayout(new FlowLayout());
+		pnTienda.setLayout(new GridLayout(6,1));
 		pnTienda.setBounds(1095, 5, 150, 603);
 		pnTienda.setBackground(Color.black);
 		cp.add(pnTienda);
@@ -74,8 +77,15 @@ public class GameGUI extends JFrame {
 		// Botones
 		btnMortero = new BotonMortero(juego);
 		btnSubZero = new BotonSubZero(juego);
+		BotonTienda btnP3 = new BotonPersonaje3(juego);
+		BotonTienda btnP4 = new BotonPersonaje4(juego);
+		BotonTienda btnP5 = new BotonPersonaje5(juego);
+		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
+		lstBotones.add(btnP3);
+		lstBotones.add(btnP4);
+		lstBotones.add(btnP5);
 
 		for (JButton b : lstBotones)
 			pnTienda.add(b);
