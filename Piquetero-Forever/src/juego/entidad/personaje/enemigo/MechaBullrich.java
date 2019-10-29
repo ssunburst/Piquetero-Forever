@@ -4,7 +4,6 @@ import grafico.enemigo.GraficoMBullrich;
 import juego.Juego;
 import juego.accionador.AccionadorRango;
 import juego.entidad.proyectil.BolaDeFuego;
-import visitor.DummyVisitor;
 import visitor.Visitor;
 import visitor.VisitorEnemigo;
 
