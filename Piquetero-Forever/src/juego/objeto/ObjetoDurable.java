@@ -6,7 +6,7 @@ public abstract class ObjetoDurable extends Objeto
 {
 	protected int vida;
 	
-	public ObjetoDurable()
+	protected ObjetoDurable()
 	{
 		
 	}

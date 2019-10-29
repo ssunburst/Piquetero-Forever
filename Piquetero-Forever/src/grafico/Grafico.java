@@ -14,7 +14,7 @@ public abstract class Grafico extends JLabel
 	protected Icon[] imagenes;
 	protected Entidad entidad;
 	
-	public Grafico(Entidad e)
+	protected Grafico(Entidad e)
 	{
 		super();
 		this.entidad = e;

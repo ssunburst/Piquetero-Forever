@@ -7,7 +7,7 @@ import juego.entidad.Entidad;
 public abstract class GraficoProyectil extends Grafico 
 {
 	
-	public GraficoProyectil(Entidad e) 
+	protected GraficoProyectil(Entidad e) 
 	{
 		super(e);
 	}

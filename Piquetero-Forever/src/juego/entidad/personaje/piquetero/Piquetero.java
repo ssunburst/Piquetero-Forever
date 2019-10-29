@@ -12,7 +12,7 @@ import visitor.VisitorPiquetero;
 public abstract class Piquetero extends Personaje 
 {	
 	
-	public Piquetero(Juego j)
+	protected Piquetero(Juego j)
 	{
 		super(j);
 		this.direccion = ESTATICO;

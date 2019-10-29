@@ -11,7 +11,7 @@ public abstract class DetectorColisiones
 	protected Juego juego;
 	protected Entidad entidad;
 	
-	public DetectorColisiones(Juego j, Entidad e)
+	protected DetectorColisiones(Juego j, Entidad e)
 	{
 		juego = j;
 		entidad = e;		
