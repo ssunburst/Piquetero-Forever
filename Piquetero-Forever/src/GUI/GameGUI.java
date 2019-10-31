@@ -3,7 +3,7 @@ package GUI;
 import javax.swing.*;
 
 import GUI.boton.BotonMortero;
-import GUI.boton.BotonPersonaje3;
+import GUI.boton.BotonKungLao;
 import GUI.boton.BotonPersonaje4;
 import GUI.boton.BotonPersonaje5;
 import GUI.boton.BotonSubZero;
@@ -25,7 +25,7 @@ public class GameGUI extends JFrame {
 	private JLabel lblPuntaje, lblMonedas;
 	private JLabel lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
-	private BotonTienda btnMortero, btnSubZero;
+	private BotonTienda btnMortero, btnSubZero, btnKungLao;
 	private JButton btnVender;
 
 	public GameGUI() {
@@ -77,13 +77,13 @@ public class GameGUI extends JFrame {
 		// Botones
 		btnMortero = new BotonMortero(juego);
 		btnSubZero = new BotonSubZero(juego);
-		BotonTienda btnP3 = new BotonPersonaje3(juego);
+		btnKungLao = new BotonKungLao(juego);
 		BotonTienda btnP4 = new BotonPersonaje4(juego);
 		BotonTienda btnP5 = new BotonPersonaje5(juego);
 		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
-		lstBotones.add(btnP3);
+		lstBotones.add(btnKungLao);
 		lstBotones.add(btnP4);
 		lstBotones.add(btnP5);
 
