@@ -14,8 +14,8 @@ public class GraficoKungLao extends GraficoPiquetero {
 	protected void setearImagenes() 
 	{
 		super.setearImagenes();
-		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/KungLao_idle.gif"));
-		imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/KungLao_atck.gif"));
+		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/kunglao_idle.gif"));
+		imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/kunglao_atck.gif"));
 		imagenes[2] = null;
 	}
 }

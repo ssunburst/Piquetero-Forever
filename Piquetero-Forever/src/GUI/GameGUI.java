@@ -21,7 +21,7 @@ import juego.entidad.Entidad;
 
 public class GameGUI extends JFrame {
 	private Juego juego;
-	private JPanel pnTienda, pnPuntaje, pnMonedas;
+	private JPanel pnTienda;
 	private JLabel lblPuntaje, lblMonedas;
 	private JLabel lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
