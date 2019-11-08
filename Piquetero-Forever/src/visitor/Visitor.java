@@ -11,7 +11,7 @@ public abstract class Visitor
 {
 	protected Entidad entidad;
 	
-	public Visitor(Entidad e)
+	protected Visitor(Entidad e)
 	{
 		this.entidad = e;
 	}

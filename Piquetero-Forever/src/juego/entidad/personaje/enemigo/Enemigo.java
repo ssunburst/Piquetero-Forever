@@ -17,7 +17,7 @@ public abstract class Enemigo extends Personaje
 	protected int recompensa;	// Cantidad de monedas otorgadas
 	protected int puntaje;		// Puntos otorgados al jugador
 	
-	public Enemigo(Juego j) 
+	protected Enemigo(Juego j) 
 	{
 		super(j);
 		this.direccion = IZQUIERDA;

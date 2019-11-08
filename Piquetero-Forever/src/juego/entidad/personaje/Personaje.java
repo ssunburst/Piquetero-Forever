@@ -9,7 +9,7 @@ public abstract class Personaje extends Entidad
 {
 	protected int armadura;
 	
-	public Personaje(Juego j) 
+	protected Personaje(Juego j) 
 	{
 		super(j);
 	}

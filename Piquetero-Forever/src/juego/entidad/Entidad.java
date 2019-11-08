@@ -29,7 +29,7 @@ public abstract class Entidad {
 	protected final int IZQUIERDA = -1;
 	protected final int ESTATICO = 0;
 
-	public Entidad(Juego j) 
+	protected Entidad(Juego j) 
 	{
 		this.juego = j;
 	}

@@ -8,7 +8,7 @@ public abstract class Accionador
 	public int demora;
 	public int demoraConsumida;
 	
-	public Accionador(Entidad e, int d)
+	protected Accionador(Entidad e, int d)
 	{
 		this.entidad = e;
 		this.demora = d;

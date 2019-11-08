@@ -13,7 +13,7 @@ import javax.swing.Icon;
 
 public abstract class GraficoPiquetero extends Grafico
 {
-	public GraficoPiquetero(Entidad e) 
+	protected GraficoPiquetero(Entidad e) 
 	{
 		super(e);
 		this.setSize(new Dimension(119, 100));

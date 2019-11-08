@@ -12,7 +12,7 @@ public abstract class Proyectil extends Entidad
 	protected int alcance;
 	protected double distanciaRecorrida;
 	
-	public Proyectil(Juego j)
+	protected Proyectil(Juego j)
 	{
 		super(j);
 		this.accionador = new AccionadorProyectil(this);

@@ -15,7 +15,7 @@ public abstract class BotonTienda extends JButton
 	protected Juego juego;
 	protected Entidad entidad;
 	
-	public BotonTienda(Juego j, String t)
+	protected BotonTienda(Juego j, String t)
 	{
 		this.setSize(new Dimension(80,20));
 		this.setText(t);

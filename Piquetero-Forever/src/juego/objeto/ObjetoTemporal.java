@@ -6,7 +6,7 @@ public abstract class ObjetoTemporal extends Objeto
 {
 	protected int duracion;
 	
-	public ObjetoTemporal()
+	protected ObjetoTemporal()
 	{
 		
 	}
