@@ -2,6 +2,7 @@ package juego;
 
 import grafico.mapa.Mapa;
 import juego.entidad.Entidad;
+import juego.nivel.Nivel;
 
 import java.util.List;
 
@@ -10,23 +11,31 @@ import org.omg.CORBA.FREE_MEM;
 import java.util.LinkedList;
 import GUI.GameGUI;
 import java.awt.Point;
+import juego.nivel.NivelUno;
+import juego.nivel.NivelDos;
+import juego.nivel.NivelTres;
 
 public class Juego implements Runnable {
-	protected int puntaje;
-	protected int monedas;
 	protected Mapa mapa;
+	protected GameGUI gui;
 	
 	protected Nivel nivelActual;
 	protected Tienda tienda;
+	
+	protected Nivel[] niveles;
+	protected int nivelActivo;
 	
 	protected List<Entidad> entidades;
 	protected List<Entidad> aAgregar;
 	protected List<Entidad> aQuitar;
 	
-	protected GameGUI gui;
 	protected boolean juegoActivo;
+	protected boolean victoria;
+	protected int puntaje;
+	protected int monedas;
 
-	public Juego(GameGUI g) {
+	public Juego(GameGUI g) 
+	{
 		gui = g;
 		puntaje = 0;
 		monedas = 1000;
@@ -36,7 +45,13 @@ public class Juego implements Runnable {
 		aQuitar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		juegoActivo = true;
-
+		victoria = true;
+		
+		niveles = new Nivel[3];
+		niveles[0] = new NivelUno(this);
+		niveles[1] = new NivelDos(this);
+		niveles[2] = new NivelTres(this);
+		nivelActivo = 0;
 	}
 
 	public int getPuntaje() {
@@ -104,8 +119,19 @@ public class Juego implements Runnable {
 	}
 
 	public void accionar() {
-		for (Entidad e : entidades)
-			e.accionar();
+		if (niveles[nivelActivo].termino())
+		{
+			if (nivelActivo == (niveles.length -1))
+				finalizar(true);
+			else
+				nivelActivo++;
+		}
+		else
+		{
+			niveles[nivelActivo].accionar();
+			for (Entidad e : entidades)
+				e.accionar();
+		}
 	}
 
 	public GameGUI getGUI() {
@@ -116,22 +142,27 @@ public class Juego implements Runnable {
 		return juegoActivo;
 	}
 
-	public void terminarJuego() {
+	public void terminarJuego(boolean v) 
+	{
+		if (!v)
+			victoria = false;
 		juegoActivo = false;
 	}
 	
-	public void finalizar()
+	
+	public void finalizar(boolean v)
 	{
 		entidades.clear();
 		aQuitar.clear();
 		aAgregar.clear();
-		gui.mostrarFinalizacion();		
+		gui.finalizar(v);		
 	}
 
 	@Override
 	public void run() {
 		while (juegoActivo) {
 			this.accionar();
+			mapa.purgar();
 			for (Entidad e: aQuitar)
 				quitarEntidad(e);
 			for (Entidad e: aAgregar)
@@ -144,6 +175,6 @@ public class Juego implements Runnable {
 
 			}
 		}
-		finalizar();
+		finalizar(victoria);
 	}
 }

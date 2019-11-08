@@ -21,7 +21,7 @@ public class AccionadorRango extends Accionador {
 			e.aceptar(entidad.visitor());
 		if (comprobarDemora())
 		{
-			Proyectil p = entidad.getProyectil().clonar(entidad.getGrafico().getLocation());
+			Proyectil p = entidad.getProyectil().clonarEn(entidad.getGrafico().getLocation());
 			entidad.getJuego().agregarLuego(p);
 		}
 		if (mover)

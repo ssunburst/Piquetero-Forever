@@ -32,7 +32,6 @@ public abstract class BotonTienda extends JButton
 					{
 						juego.gastarMonedas(e.getPrecio());
 						juego.getTienda().setNextToAdd(e);
-						System.out.println("Tienda toadd " + j.getTienda().getToAdd());
 						juego.getGUI().setearPanel(false);
 						juego.getGUI().setearBotonVender(false);
 					}

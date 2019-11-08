@@ -42,4 +42,10 @@ public abstract class Personaje extends Entidad
 		}
 		return ret;
 	}
+	
+	@Override
+	public Entidad clonar() 
+	{
+		return null;
+	}
 }

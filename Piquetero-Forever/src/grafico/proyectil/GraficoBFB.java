@@ -6,9 +6,9 @@ import juego.entidad.Entidad;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class GraficoProyectilEnemigo extends GraficoProyectil 
+public class GraficoBFB extends GraficoProyectil 
 {
-	public GraficoProyectilEnemigo(Entidad e, int img) 
+	public GraficoBFB(Entidad e) 
 	{
 		super(e);
 	}
@@ -17,6 +17,6 @@ public class GraficoProyectilEnemigo extends GraficoProyectil
 	protected void setearImagenes() 
 	{
 		super.setearImagenes();
-		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/fireball.jpeg"));
+		imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/fireball_low.png"));
 	}
 }

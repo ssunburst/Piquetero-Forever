@@ -93,16 +93,6 @@ public class GameGUI extends JFrame {
 			}
 		});
 		pnTienda.add(btnVender);
-
-//		--------------------------------------------------------------------
-//		TEST BULLRICH
-		
-		Entidad mb = new MechaBullrich(juego);
-		Point p = new Point(1087, juego.getMapa().rowSize()*3+113);
-		mb.getGrafico().setLocation(p);
-		juego.agregarLuego(mb);
-		System.out.println(mb.getGrafico().getLocation());
-		
 		cp.add(juego.getMapa());
 
 		this.setVisible(true);
@@ -146,9 +136,12 @@ public class GameGUI extends JFrame {
 			b.setEnabled(but);
 	}
 	
-	public void mostrarFinalizacion()
+	public void finalizar(boolean v)
 	{
-		JOptionPane.showMessageDialog(this, "CAJETA");
+		for (JButton b : this.lstBotones)
+			b.setEnabled(false);
+		btnVender.setEnabled(false);
+		JOptionPane.showMessageDialog(this, v? "Has vencido! Has logrado mantener viva la llama de la lucha obrera." : "Has sido derrotado. Un día oscuro para la lucha sindical.");
 	}
 
 }

@@ -44,10 +44,13 @@ public abstract class Enemigo extends Personaje
 		comprobarFinalizacion();
 	}
 	
+	@Override
+	public abstract Enemigo clonar();
+	
 	public void comprobarFinalizacion()
 	{
 		Point p = this.grafico.getLocation();
-		if (p.getX() + this.grafico.getWidth() == 0)
-			this.juego.terminarJuego();
+		if (p.getX() + this.grafico.getWidth() <= 0)
+			this.juego.terminarJuego(false);
 	}
 }

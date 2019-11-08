@@ -18,7 +18,7 @@ public class GraficoMBullrich extends GraficoEnemigo
 	{
 		super.setearImagenes();
 		this.imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/bul_walk.gif"));
-		this.imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/bul_atck.gif"));;
+		this.imagenes[1] = new ImageIcon(this.getClass().getResource("/imagenes/bul_walk.gif"));
 		this.imagenes[2] = null;	
 	}
 }

@@ -22,9 +22,10 @@ public class Mapa extends JPanel
 	protected List<Grafico> graficos;
 	protected Map<Point, Grafico> posAliadas;
 
-	protected final int FILAS = 5;
-	protected final int COLUMNAS = 9;
-	protected final int playZoneY = 113;
+	protected int filas = 5;
+	protected int columnas = 9;
+	protected int playZoneY = 113;
+	
 	protected boolean vender;
 
 	/*
@@ -54,6 +55,26 @@ public class Mapa extends JPanel
 		setComponentZOrder(background, 0);
 	}
 	
+	public int filas()
+	{
+		return filas;
+	}
+	
+	public int columnas()
+	{
+		return columnas;
+	}
+	
+	public int posFila(int f)
+	{
+		return playZoneY + (f-1)*rowSize();
+	}
+	
+	public int posColumna(int c)
+	{
+		return (c-1)*colSize();
+	}
+	
 	/*
 	 * Retorna una colección iterable de los graficos actualmente presentes en el mapa.
 	 */
@@ -70,9 +91,6 @@ public class Mapa extends JPanel
 		this.graficos.add(toAdd);
 		this.add(toAdd);
 		this.setComponentZOrder(toAdd, 0);
-		this.juego.getGUI().setearPanel(true);
-		this.juego.getGUI().setearBotonVender(true);
-		this.repaint();
 	}
 
 	/*
@@ -88,17 +106,18 @@ public class Mapa extends JPanel
 	}
 
 	/*
-	 * Determina el ancho de cuadrícula del juego del mapa.
+	 * Determina el ancho de una cuadrícula del juego del mapa.
 	 */
-	public int colSize() {
-		return this.getWidth() / COLUMNAS;
+	public int colSize() 
+	{
+		return this.getWidth() / columnas;
 	}
 
 	/*
 	 * Determina el alto de cuadrícula del mapa
 	 */
 	public int rowSize() {
-		return (this.getHeight() - playZoneY) / FILAS;
+		return (this.getHeight() - playZoneY) / filas;
 	}
 
 	/*
@@ -108,7 +127,7 @@ public class Mapa extends JPanel
 	private int fixX(int x) 
 	{
 		x = (x / colSize()) * colSize();
-		if ((0 <= x) && (x < colSize()*COLUMNAS))
+		if ((0 <= x) && (x < colSize()*columnas))
 			return x;
 		else
 			return -1;
@@ -119,14 +138,10 @@ public class Mapa extends JPanel
 	 * ordenamiento fila-columna del mapa.
 	 */
 	private int fixY(int y) {
-		if (y < 113)
+		if ((y < 113) || (y >= playZoneY + filas*rowSize()))
 			y = -1;
 		else 
-		{
 			y = (((y - playZoneY) / rowSize()) * rowSize()) + playZoneY;
-			if (y >= rowSize()*FILAS)
-				y = -1;
-		}
 		return y;
 	}
 
@@ -136,6 +151,7 @@ public class Mapa extends JPanel
 	public void setVender(boolean v) {
 		vender = v;
 	}
+	
 
 	/*
 	 * Oyente del mapa.
@@ -167,11 +183,23 @@ public class Mapa extends JPanel
 						toAdd.getGrafico().setLocation(p);
 						posAliadas.put(p, toAdd.getGrafico());
 						juego.agregarLuego(toAdd);
+						juego.getGUI().setearPanel(true);
+						juego.getGUI().setearBotonVender(true);
 						juego.getTienda().setNextToAdd(null);
 					}
 
 				}
 			}
+		}
+	}
+	
+	public void purgar()
+	{
+		for (Grafico g : graficos)
+		{
+			int x = g.getX();
+			if ((x + g.getWidth() < 0) || (x > getWidth()))
+				juego.quitarLuego(g.getEntidad());
 		}
 	}
 }

@@ -86,8 +86,7 @@ public abstract class Entidad {
 		double x = p.getX() + velocidad*direccion;
 		double y = p.getY();
 		p.setLocation(x, y);
-		grafico.setLocation(p);		
-		grafico.repaint();
+		grafico.setLocation(p);
 	}
 
 	public void atacar(Entidad e) 
@@ -106,6 +105,8 @@ public abstract class Entidad {
 	}
 
 	public void vender() {}
+	
+	public abstract Entidad clonar();
 
 	public abstract void aceptar(Visitor v);
 }

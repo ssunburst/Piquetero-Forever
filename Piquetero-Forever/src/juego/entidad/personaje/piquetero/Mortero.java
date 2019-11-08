@@ -2,18 +2,19 @@ package juego.entidad.personaje.piquetero;
 
 import grafico.piquetero.GraficoMortero;
 import juego.Juego;
-import juego.accionador.AccionadorMelee;
+import juego.accionador.AccionadorRango;
+import juego.entidad.proyectil.Peronball;
 
 public class Mortero extends Piquetero 
 {	
 	public Mortero(Juego j) 
 	{
 		super(j);
-		this.accionador = new AccionadorMelee(this, 30);
+		this.accionador = new AccionadorRango(this, 70);
+		this.proyectil = new Peronball(j);
 		this.velocidad = 2;
-		this.precio = 100;
-		this.dagno = 70;
-		this.vida = 50;
+		this.precio = 150;
+		this.vida = 100;
 		this.grafico = new GraficoMortero(this);
 	}
 

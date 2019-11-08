@@ -49,5 +49,11 @@ public abstract class Proyectil extends Entidad
 		distanciaRecorrida =+ d;
 	}
 	
-	public abstract Proyectil clonar(Point p);
+	public abstract Proyectil clonarEn(Point p);
+	
+	@Override
+	public Entidad clonar() 
+	{
+		return clonarEn(new Point(0,0));
+	}
 }
