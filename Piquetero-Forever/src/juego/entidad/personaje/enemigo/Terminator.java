@@ -14,9 +14,9 @@ public class Terminator extends Enemigo
 		this.grafico = new GraficoTerminator(this);
 		this.velocidad = 2;
 		this.proyectil = new BolaDeFuegoB(j);
-		this.vida = 150;
+		this.vida = 300;
 		this.puntaje = 70;
-		this.recompensa = 20;
+		this.recompensa = 100;
 	}
 	
 	@Override

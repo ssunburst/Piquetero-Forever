@@ -10,7 +10,7 @@ public class Mortero extends Piquetero
 	public Mortero(Juego j) 
 	{
 		super(j);
-		this.accionador = new AccionadorRango(this, 70);
+		this.accionador = new AccionadorRango(this, 90);
 		this.proyectil = new Peronball(j);
 		this.velocidad = 2;
 		this.precio = 150;

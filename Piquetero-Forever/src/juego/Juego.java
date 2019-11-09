@@ -19,11 +19,10 @@ public class Juego implements Runnable {
 	protected Mapa mapa;
 	protected GameGUI gui;
 	
-	protected Nivel nivelActual;
 	protected Tienda tienda;
 	
 	protected Nivel[] niveles;
-	protected int nivelActivo;
+	protected int nivelActual;
 	
 	protected List<Entidad> entidades;
 	protected List<Entidad> aAgregar;
@@ -51,7 +50,7 @@ public class Juego implements Runnable {
 		niveles[0] = new NivelUno(this);
 		niveles[1] = new NivelDos(this);
 		niveles[2] = new NivelTres(this);
-		nivelActivo = 0;
+		nivelActual = 0;
 	}
 
 	public int getPuntaje() {
@@ -69,12 +68,8 @@ public class Juego implements Runnable {
 		this.gui.actualizarMonedas();
 	}
 
-	public Nivel getNivelActual() {
-		return nivelActual;
-	}
-
-	public void setNivelActual(Nivel nivelActual) {
-		this.nivelActual = nivelActual;
+	public int getNivelActual() {
+		return nivelActual + 1;
 	}
 
 	public Mapa getMapa() {
@@ -119,16 +114,19 @@ public class Juego implements Runnable {
 	}
 
 	public void accionar() {
-		if (niveles[nivelActivo].termino())
+		if (niveles[nivelActual].termino())
 		{
-			if (nivelActivo == (niveles.length -1))
-				finalizar(true);
+			if (nivelActual == (niveles.length -1))
+				terminarJuego(true);
 			else
-				nivelActivo++;
+			{
+				nivelActual++;
+				gui.actualizarNivel();
+			}
 		}
 		else
 		{
-			niveles[nivelActivo].accionar();
+			niveles[nivelActual].accionar();
 			for (Entidad e : entidades)
 				e.accionar();
 		}
@@ -150,7 +148,7 @@ public class Juego implements Runnable {
 	}
 	
 	
-	public void finalizar(boolean v)
+	protected void finalizar(boolean v)
 	{
 		entidades.clear();
 		aQuitar.clear();

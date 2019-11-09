@@ -9,7 +9,7 @@ public class Peronball extends ProyectilAmigo
 {
 	public Peronball(Juego j) {
 		super(j);
-		this.dagno = 200;
+		this.dagno = 250;
 		this.velocidad = 11;
 		this.grafico = new GraficoPeronball(this);
 	}

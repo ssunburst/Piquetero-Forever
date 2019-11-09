@@ -10,14 +10,14 @@ public class NivelUno extends Nivel
 	public NivelUno(Juego j)
 	{
 		super(j);
-		this.espaciado = 97;
+		this.espaciado = 98;
 	}
 	
 	@Override
 	protected void inicializarEnemigos() 
 	{
-		this.mas = new Terminator(this.juego);
+		this.mas = new MechaBullrich(this.juego);
 		this.normal = new MechaBullrich(this.juego);
-		this.menos = new Motaro(this.juego);	
+		this.menos = new MechaBullrich(this.juego);
 	}
 }

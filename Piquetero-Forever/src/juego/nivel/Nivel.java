@@ -81,7 +81,7 @@ public abstract class Nivel {
 	protected abstract void inicializarEnemigos();
 
 	protected void agregarEnemigos(int i) {
-		for (int j = 0; j < 15; j++) {
+		for (int j = 0; j < 10; j++) {
 			int r = ran.nextInt(10);
 			if (r < 5)
 				oleadas[i].add(mas.clonar());

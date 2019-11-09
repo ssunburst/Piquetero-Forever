@@ -13,7 +13,7 @@ public class SubZero extends Piquetero
 		this.grafico = new GraficoSubZero(this);
 		this.accionador = new AccionadorMelee(this, 20);
 		this.precio = 100;
-		this.vida = 400;
+		this.vida = 200;
 		this.dagno = 100;
 	}
 }

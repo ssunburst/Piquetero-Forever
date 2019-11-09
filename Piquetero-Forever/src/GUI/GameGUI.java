@@ -3,9 +3,8 @@ package GUI;
 import javax.swing.*;
 
 import GUI.boton.BotonMortero;
-import GUI.boton.BotonKungLao;
 import GUI.boton.BotonPersonaje4;
-import GUI.boton.BotonPersonaje5;
+import GUI.boton.BotonAltamira;
 import GUI.boton.BotonSubZero;
 import GUI.boton.BotonTienda;
 
@@ -22,10 +21,10 @@ import juego.entidad.Entidad;
 public class GameGUI extends JFrame {
 	private Juego juego;
 	private JPanel pnTienda;
-	private JLabel lblPuntaje, lblMonedas;
-	private JLabel lblSbraPuntaje, lblSbraMonedas;
+	private JLabel lblNivel, lblPuntaje, lblMonedas;
+	private JLabel lblSbraNivel, lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
-	private BotonTienda btnMortero, btnSubZero, btnKungLao;
+	private BotonTienda btnMortero, btnSubZero, btnAltamira;
 	private JButton btnVender;
 
 	public GameGUI() {
@@ -40,52 +39,63 @@ public class GameGUI extends JFrame {
 		lstBotones = new LinkedList<JButton>();
 		// Panel tienda
 		pnTienda = new JPanel();
-		pnTienda.setLayout(new GridLayout(6,1));
+		pnTienda.setLayout(new FlowLayout());
 		pnTienda.setBounds(1095, 5, 150, 603);
-		pnTienda.setBackground(Color.black);
+		pnTienda.setOpaque(false);
+//		pnTienda.setBackground(Color.black);
 		cp.add(pnTienda);
 
 		// Label de Puntaje
 		lblSbraPuntaje = new JLabel("PUNTAJE   " + juego.getPuntaje());
-		lblSbraPuntaje.setFont(new Font("Arial black", Font.ITALIC, 35));
-		lblSbraPuntaje.setBounds(46, 34, 400, 35);
+		lblSbraPuntaje.setFont(new Font("Arial black", Font.ITALIC, 30));
+		lblSbraPuntaje.setBounds(367, 38, 400, 30);
 		juego.getMapa().add(lblSbraPuntaje);
 		juego.getMapa().setComponentZOrder(lblSbraPuntaje, 0);
 		
 		lblPuntaje = new JLabel("PUNTAJE   " + juego.getPuntaje());
-		lblPuntaje.setFont(new Font("Arial black", Font.ITALIC, 35));
-		lblPuntaje.setBounds(50, 30, 400, 35);
+		lblPuntaje.setFont(new Font("Arial black", Font.ITALIC, 30));
+		lblPuntaje.setBounds(370, 35, 400, 30);
 		lblPuntaje.setForeground(Color.white);
 		juego.getMapa().add(lblPuntaje);
 		juego.getMapa().setComponentZOrder(lblPuntaje, 0);
 
 		// Label de Monedas
-		lblSbraMonedas = new JLabel("TURRODOLARES   " + juego.getMonedas());
-		lblSbraMonedas.setFont(new Font("Arial black", Font.ITALIC, 35));
-		lblSbraMonedas.setBounds(596, 34, 500, 35);
+		lblSbraMonedas = new JLabel("DOLARUCOS   " + juego.getMonedas());
+		lblSbraMonedas.setFont(new Font("Arial black", Font.ITALIC, 30));
+		lblSbraMonedas.setBounds(697, 38, 500, 30);
 		juego.getMapa().add(lblSbraMonedas);
 		juego.getMapa().setComponentZOrder(lblSbraMonedas, 0);
 		
-		lblMonedas = new JLabel("TURRODOLARES   " + juego.getMonedas());
-		lblMonedas.setFont(new Font("Arial black", Font.ITALIC, 35));
-		lblMonedas.setBounds(600, 30, 500, 35);
+		lblMonedas = new JLabel("DOLARUCOS   " + juego.getMonedas());
+		lblMonedas.setFont(new Font("Arial black", Font.ITALIC, 30));
+		lblMonedas.setBounds(700, 35, 500, 30);
 		lblMonedas.setForeground(Color.WHITE);
 		juego.getMapa().add(lblMonedas);
 		juego.getMapa().setComponentZOrder(lblMonedas, 0);
+		
+		// Label de Nivel
+		lblSbraNivel = new JLabel("NIVEL   " + juego.getNivelActual());
+		lblSbraNivel.setFont(new Font("Arial black", Font.ITALIC, 40));
+		lblSbraNivel.setBounds(11, 21, 500, 50);
+		juego.getMapa().add(lblSbraNivel);
+		juego.getMapa().setComponentZOrder(lblSbraNivel, 0);
+		
+		lblNivel = new JLabel("NIVEL   " + juego.getNivelActual());
+		lblNivel.setFont(new Font("Arial black", Font.ITALIC, 40));
+		lblNivel.setBounds(14, 18, 500, 50);
+		lblNivel.setForeground(Color.white);
+		juego.getMapa().add(lblNivel);
+		juego.getMapa().setComponentZOrder(lblNivel, 0);
 		
 
 		// Botones
 		btnMortero = new BotonMortero(juego);
 		btnSubZero = new BotonSubZero(juego);
-		btnKungLao = new BotonKungLao(juego);
-		BotonTienda btnP4 = new BotonPersonaje4(juego);
-		BotonTienda btnP5 = new BotonPersonaje5(juego);
+		btnAltamira = new BotonAltamira(juego);
 		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
-		lstBotones.add(btnKungLao);
-		lstBotones.add(btnP4);
-		lstBotones.add(btnP5);
+		lstBotones.add(btnAltamira);
 
 		for (JButton b : lstBotones)
 			pnTienda.add(b);
@@ -121,13 +131,17 @@ public class GameGUI extends JFrame {
 	public void actualizarPuntaje() {
 		this.lblPuntaje.setText("PUNTAJE   " + juego.getPuntaje());
 		this.lblSbraPuntaje.setText("PUNTAJE   " + juego.getPuntaje());
-		lblPuntaje.repaint();
 	}
 
 	public void actualizarMonedas() {
 		this.lblMonedas.setText("TURRODOLARES   " + juego.getMonedas());
 		this.lblSbraMonedas.setText("TURRODOLARES   " + juego.getMonedas());
-		lblMonedas.repaint();
+	}
+	
+	public void actualizarNivel()
+	{
+		this.lblNivel.setText("NIVEL   " + juego.getNivelActual());
+		this.lblSbraNivel.setText("NIVEL   " + juego.getNivelActual());
 	}
 	
 	public Juego juego()
