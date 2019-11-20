@@ -1,22 +1,24 @@
 package GUI;
 
 import javax.swing.*;
-
-import GUI.boton.BotonMortero;
-import GUI.boton.BotonPersonaje4;
-import GUI.boton.BotonAltamira;
-import GUI.boton.BotonSubZero;
 import GUI.boton.BotonTienda;
-
 import java.awt.*;
 import java.awt.event.*;
 import juego.Juego;
 import juego.entidad.personaje.enemigo.MechaBullrich;
+import juego.entidad.personaje.piquetero.Altamira;
+import juego.entidad.personaje.piquetero.CapitanAmerica;
+import juego.entidad.personaje.piquetero.Megazord;
+import juego.entidad.personaje.piquetero.Mortero;
 import grafico.enemigo.GraficoMBullrich;
 import grafico.mapa.Mapa;
 import java.util.List;
 import java.util.LinkedList;
 import juego.entidad.Entidad;
+import juego.entidad.objeto.Barril;
+import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.SubZero;
+import juego.entidad.objeto.Lava;
 
 public class GameGUI extends JFrame {
 	private Juego juego;
@@ -24,7 +26,8 @@ public class GameGUI extends JFrame {
 	private JLabel lblNivel, lblPuntaje, lblMonedas;
 	private JLabel lblSbraNivel, lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
-	private BotonTienda btnMortero, btnSubZero, btnAltamira;
+	private BotonTienda btnMortero, btnSubZero, btnAltamira, btnMegazord, btnCap,
+						btnBarril, btnLava;
 	private JButton btnVender;
 
 	public GameGUI() {
@@ -68,7 +71,8 @@ public class GameGUI extends JFrame {
 		
 		lblMonedas = new JLabel("DOLARUCOS   " + juego.getMonedas());
 		lblMonedas.setFont(new Font("Arial black", Font.ITALIC, 30));
-		lblMonedas.setBounds(700, 35, 500, 30);
+		lblMonedas.setBounds(700
+				, 35, 500, 30);
 		lblMonedas.setForeground(Color.WHITE);
 		juego.getMapa().add(lblMonedas);
 		juego.getMapa().setComponentZOrder(lblMonedas, 0);
@@ -89,13 +93,22 @@ public class GameGUI extends JFrame {
 		
 
 		// Botones
-		btnMortero = new BotonMortero(juego);
-		btnSubZero = new BotonSubZero(juego);
-		btnAltamira = new BotonAltamira(juego);
+		btnMortero = new BotonTienda(juego, new Mortero(juego), "MORTERO");
+		btnSubZero = new BotonTienda(juego, new SubZero(juego), "SUB-ZERO");
+		btnAltamira = new BotonTienda(juego, new Altamira(juego), "ALTAMIRA");
+		btnMegazord = new BotonTienda(juego, new Megazord(juego), "MEGAZORD");
+		btnCap = new BotonTienda(juego, new CapitanAmerica(juego), "CAPITAN AMERICA");
+		
+		btnBarril = new BotonTienda(juego, new Barril(juego), "BARRIL");
+		btnLava =  new BotonTienda(juego, new Lava(juego), "Lava");
 		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
 		lstBotones.add(btnAltamira);
+		lstBotones.add(btnMegazord);
+		lstBotones.add(btnCap);
+		lstBotones.add(btnBarril);
+		lstBotones.add(btnLava);
 
 		for (JButton b : lstBotones)
 			pnTienda.add(b);

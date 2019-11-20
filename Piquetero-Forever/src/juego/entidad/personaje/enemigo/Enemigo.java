@@ -6,8 +6,8 @@ import grafico.Grafico;
 import grafico.detector.DetectorHaciaIzquierda;
 import juego.Juego;
 import juego.entidad.Entidad;
+import juego.entidad.objeto.Objeto;
 import juego.entidad.personaje.Personaje;
-import juego.objeto.Objeto;
 import visitor.Visitor;
 import visitor.VisitorEnemigo;
 

@@ -13,7 +13,8 @@ import grafico.mapa.Mapa;
 import java.util.Iterator;
 import java.awt.Point;
 
-public abstract class Nivel {
+public abstract class Nivel 
+{
 	protected Juego juego;
 	protected List<Enemigo>[] oleadas;
 	protected int oleadaActiva;
@@ -41,7 +42,8 @@ public abstract class Nivel {
 		it = oleadas[0].iterator();
 		oleadaActiva = 0;
 		nivelTerminado = false;
-		demora = 150;
+//		demora = 150;
+		demora = 50;
 		demoraConsumida = 0;
 	}
 

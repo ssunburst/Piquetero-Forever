@@ -2,6 +2,7 @@ package juego.nivel;
 
 import juego.Juego;
 import juego.entidad.personaje.enemigo.MechaBullrich;
+import juego.entidad.personaje.enemigo.Monstruo;
 import juego.entidad.personaje.enemigo.Motaro;
 
 public class NivelTres extends Nivel 
@@ -15,7 +16,7 @@ public class NivelTres extends Nivel
 	@Override
 	protected void inicializarEnemigos() 
 	{
-		this.mas = new MechaBullrich(this.juego);
+		this.mas = new Monstruo(this.juego);
 		this.normal = new Motaro(this.juego);
 		this.menos = new Motaro(this.juego);	
 	}

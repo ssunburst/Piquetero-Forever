@@ -16,4 +16,9 @@ public class SubZero extends Piquetero
 		this.vida = 200;
 		this.dagno = 100;
 	}
+	
+	@Override
+	public Entidad clonar() {
+		return new SubZero(this.juego);
+	}
 }

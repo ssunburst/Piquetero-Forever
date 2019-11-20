@@ -24,4 +24,16 @@ public abstract class GraficoPiquetero extends Grafico
 	{
 		imagenes = new Icon[3];
 	}
+	
+	@Override
+	public int posAtaque() 
+	{
+		return 1;
+	}
+	
+	@Override
+	public int posMuerte() 
+	{
+		return 2;
+	}
 }

@@ -19,8 +19,8 @@ public abstract class Entidad {
 	protected DetectorColisiones detector;
 	protected Proyectil proyectil;
 
-	protected int dagno;
 	protected int precio;
+	protected int dagno;
 	protected int velocidad;
 	protected int vida;
 	
@@ -39,15 +39,16 @@ public abstract class Entidad {
 		return direccion;
 	}
 
-	public int getPrecio() {
-		return precio;
-	}
-
 	public int getVida() {
 		return vida;
 	}
 
-	public abstract void recibirDagno(int d);
+	public void recibirDagno(int d)
+	{
+		this.vida -= d;
+		if (vida <= 0)
+			this.morir();
+	}
 
 	public void morir() {
 		// TODO Animaciones y otres
@@ -69,6 +70,11 @@ public abstract class Entidad {
 
 	public int getDagno() {
 		return dagno;
+	}
+	
+	public int getPrecio()
+	{
+		return precio;
 	}
 
 	public int getVelocidad() {

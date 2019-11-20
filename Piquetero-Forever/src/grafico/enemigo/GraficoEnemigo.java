@@ -5,9 +5,9 @@ import grafico.detector.DetectorHaciaIzquierda;
 import juego.entidad.Entidad;
 import javax.swing.Icon;
 
-public class GraficoEnemigo extends Grafico 
+public abstract class GraficoEnemigo extends Grafico 
 {
-	public GraficoEnemigo(Entidad e) 
+	protected GraficoEnemigo(Entidad e) 
 	{
 		super(e);
 	}
@@ -16,5 +16,17 @@ public class GraficoEnemigo extends Grafico
 	protected void setearImagenes() 
 	{
 		imagenes = new Icon[3];
-	}	
+	}
+	
+	@Override
+	public int posAtaque() 
+	{
+		return 1;
+	}
+	
+	@Override
+	public int posMuerte() 
+	{
+		return 2;
+	}
 }

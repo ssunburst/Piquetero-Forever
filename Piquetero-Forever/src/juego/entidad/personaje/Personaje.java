@@ -26,9 +26,7 @@ public abstract class Personaje extends Entidad
 	public void recibirDagno(int d) 
 	{
 		d = consumirArmadura(d);
-		this.vida -= d;
-		if (vida <= 0)
-			this.morir();
+		super.recibirDagno(d);
 	}
 	
 	private int consumirArmadura(int d)
@@ -41,11 +39,5 @@ public abstract class Personaje extends Entidad
 			armadura = 0;
 		}
 		return ret;
-	}
-	
-	@Override
-	public Entidad clonar() 
-	{
-		return null;
 	}
 }

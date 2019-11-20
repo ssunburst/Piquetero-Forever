@@ -1,6 +1,8 @@
 package visitor;
 
 import juego.entidad.Entidad;
+import juego.entidad.objeto.Lava;
+import juego.entidad.objeto.Barril;
 import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.piquetero.Piquetero;
 
@@ -24,4 +26,15 @@ public class VisitorEnemigo extends Visitor
 		
 	}
 	
+	@Override
+	public void visitarBarril(Barril b) 
+	{
+		entidad.atacar(b);
+	}
+	
+	@Override
+	public void visitarLava(Lava a) 
+	{
+		entidad.recibirDagno(a.getDagno());
+	}
 }

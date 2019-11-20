@@ -26,7 +26,6 @@ public abstract class Grafico extends JLabel
 	public void setearImagen(int img)
 	{
 		this.setIcon(imagenes[img]);
-		this.repaint();
 	}
 	
 	public Icon[] getImagenes() {
@@ -45,13 +44,7 @@ public abstract class Grafico extends JLabel
 		return 0;
 	}
 	
-	public int posAtaque()
-	{
-		return 1;
-	}
+	public abstract int posAtaque();
 	
-	public int posMuerte()
-	{
-		return 2;
-	}
+	public abstract int posMuerte();
 }
