@@ -2,39 +2,9 @@ package juego.accionador;
 
 import juego.entidad.Entidad;
 
-public abstract class Accionador 
+public interface Accionador 
 {
-	Entidad entidad;
-	public int demora;
-	public int demoraConsumida;
+	public void accionar();
 	
-	protected Accionador(Entidad e, int d)
-	{
-		this.entidad = e;
-		this.demora = d;
-		demoraConsumida = 0;
-	}
-	
-	public Accionador(Entidad e)
-	{
-		this(e, 0);
-	}
-	
-	public abstract void accionar();
-	
-	public abstract void atacar(Entidad e);
-	
-	protected boolean comprobarDemora()
-	{
-		if (demoraConsumida == demora)
-		{
-			demoraConsumida = 0;
-			return true;
-		}
-		else
-		{
-			demoraConsumida++;
-			return false;
-		}
-	}
+	public void atacar(Entidad e);
 }

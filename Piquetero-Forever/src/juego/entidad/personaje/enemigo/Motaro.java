@@ -17,9 +17,4 @@ public class Motaro extends Enemigo
 		this.puntaje = 300;
 		
 	}
-
-	@Override
-	public Enemigo clonar() {
-		return new Motaro(this.juego);
-	}
 }

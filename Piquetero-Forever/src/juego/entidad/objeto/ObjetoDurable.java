@@ -10,4 +10,7 @@ public abstract class ObjetoDurable extends Objeto
 		super(j);
 	}
 	
+	@Override
+	public void accionar() {}
+	
 }

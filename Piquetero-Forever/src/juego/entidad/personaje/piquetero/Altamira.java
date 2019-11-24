@@ -17,10 +17,4 @@ public class Altamira extends Piquetero
 		this.precio = 250;
 		this.vida = 300;
 	}
-	
-	@Override
-	public Entidad clonar() {
-		return new Altamira(this.juego);
-	}
-
 }

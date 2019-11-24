@@ -16,11 +16,6 @@ public class Barril extends ObjetoDurable
 	}
 
 	@Override
-	public Entidad clonar() {
-		return new Barril(this.juego);
-	}
-
-	@Override
 	public void aceptar(Visitor v) 
 	{
 		v.visitarBarril(this);		

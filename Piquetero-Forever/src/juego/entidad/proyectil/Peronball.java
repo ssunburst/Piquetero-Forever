@@ -13,13 +13,4 @@ public class Peronball extends ProyectilAmigo
 		this.velocidad = 11;
 		this.grafico = new GraficoPeronball(this);
 	}
-
-	@Override
-	public Proyectil clonarEn(Point p) 
-	{
-		Proyectil ret = new Peronball(this.juego);
-		ret.getGrafico().setLocation(p);
-		return ret;
-	}
-
 }

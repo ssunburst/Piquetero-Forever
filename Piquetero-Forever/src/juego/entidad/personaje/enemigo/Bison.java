@@ -18,12 +18,4 @@ public class Bison extends Enemigo
 		this.velocidad = 9;
 		this.grafico = new GraficoBison(this);
 	}
-
-	@Override
-	public Enemigo clonar() 
-	{
-		return new Bison(this.juego);
-	}
-	
-
 }

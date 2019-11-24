@@ -4,6 +4,7 @@ import grafico.enemigo.GraficoMBullrich;
 import juego.Juego;
 import juego.accionador.AccionadorRango;
 import juego.entidad.proyectil.BolaDeFuegoA;
+import juego.entidad.proyectil.Proyectil;
 import visitor.Visitor;
 import visitor.VisitorEnemigo;
 
@@ -12,7 +13,6 @@ public class MechaBullrich extends Enemigo {
 	public MechaBullrich(Juego j)
 	{
 		super(j);
-		this.proyectil = new BolaDeFuegoA(j);
 		this.puntaje = 100;
 		this.recompensa = 70;
 		this.accionador = new AccionadorRango(this, 50);
@@ -22,7 +22,7 @@ public class MechaBullrich extends Enemigo {
 	}
 	
 	@Override
-	public Enemigo clonar() {
-		return new MechaBullrich(this.juego);
+	public Proyectil disparar() {
+		return new BolaDeFuegoA(this.juego);
 	}
 }

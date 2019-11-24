@@ -1,13 +1,19 @@
 package GUI;
 
 import javax.swing.*;
+
+import GUI.boton.BotonAltamira;
+import GUI.boton.BotonBarril;
+import GUI.boton.BotonLava;
+import GUI.boton.BotonMegazord;
+import GUI.boton.BotonMortero;
+import GUI.boton.BotonSubZero;
 import GUI.boton.BotonTienda;
 import java.awt.*;
 import java.awt.event.*;
 import juego.Juego;
 import juego.entidad.personaje.enemigo.MechaBullrich;
 import juego.entidad.personaje.piquetero.Altamira;
-import juego.entidad.personaje.piquetero.CapitanAmerica;
 import juego.entidad.personaje.piquetero.Megazord;
 import juego.entidad.personaje.piquetero.Mortero;
 import grafico.enemigo.GraficoMBullrich;
@@ -26,7 +32,7 @@ public class GameGUI extends JFrame {
 	private JLabel lblNivel, lblPuntaje, lblMonedas;
 	private JLabel lblSbraNivel, lblSbraPuntaje, lblSbraMonedas;
 	private List<JButton> lstBotones;
-	private BotonTienda btnMortero, btnSubZero, btnAltamira, btnMegazord, btnCap,
+	private BotonTienda btnMortero, btnSubZero, btnAltamira, btnMegazord,
 						btnBarril, btnLava;
 	private JButton btnVender;
 
@@ -93,20 +99,18 @@ public class GameGUI extends JFrame {
 		
 
 		// Botones
-		btnMortero = new BotonTienda(juego, new Mortero(juego), "MORTERO");
-		btnSubZero = new BotonTienda(juego, new SubZero(juego), "SUB-ZERO");
-		btnAltamira = new BotonTienda(juego, new Altamira(juego), "ALTAMIRA");
-		btnMegazord = new BotonTienda(juego, new Megazord(juego), "MEGAZORD");
-		btnCap = new BotonTienda(juego, new CapitanAmerica(juego), "CAPITAN AMERICA");
+		btnMortero = new BotonMortero(juego);
+		btnSubZero = new BotonSubZero(juego);
+		btnAltamira = new BotonAltamira(juego);
+		btnMegazord = new BotonMegazord(juego);
 		
-		btnBarril = new BotonTienda(juego, new Barril(juego), "BARRIL");
-		btnLava =  new BotonTienda(juego, new Lava(juego), "Lava");
+		btnBarril = new BotonBarril(juego);
+		btnLava =  new BotonLava(juego);
 		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
 		lstBotones.add(btnAltamira);
 		lstBotones.add(btnMegazord);
-		lstBotones.add(btnCap);
 		lstBotones.add(btnBarril);
 		lstBotones.add(btnLava);
 

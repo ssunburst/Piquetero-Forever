@@ -5,6 +5,7 @@ import juego.Juego;
 import juego.accionador.AccionadorRango;
 import juego.entidad.Entidad;
 import juego.entidad.proyectil.Peronball;
+import juego.entidad.proyectil.Proyectil;
 
 public class Mortero extends Piquetero 
 {	
@@ -12,7 +13,6 @@ public class Mortero extends Piquetero
 	{
 		super(j);
 		this.accionador = new AccionadorRango(this, 90);
-		this.proyectil = new Peronball(j);
 		this.velocidad = 2;
 		this.precio = 170;
 		this.vida = 100;
@@ -20,8 +20,8 @@ public class Mortero extends Piquetero
 	}
 	
 	@Override
-	public Entidad clonar() {
-		return new Mortero(this.juego);
+	public Proyectil disparar() 
+	{
+		return new Peronball(this.juego);
 	}
-
 }

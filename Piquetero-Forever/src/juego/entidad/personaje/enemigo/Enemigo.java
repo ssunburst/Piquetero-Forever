@@ -44,9 +44,6 @@ public abstract class Enemigo extends Personaje
 		comprobarFinalizacion();
 	}
 	
-	@Override
-	public abstract Enemigo clonar();
-	
 	public void comprobarFinalizacion()
 	{
 		Point p = this.grafico.getLocation();

@@ -18,12 +18,4 @@ public class BolaDeFuegoB extends ProyectilEnemigo
 		this.dagno = 70;
 		this.velocidad = 15;
 	}
-
-	@Override
-	public Proyectil clonarEn(Point p) 
-	{
-		Proyectil ret = new BolaDeFuegoB(this.juego);
-		ret.getGrafico().setLocation(p);
-		return ret;
-	}
 }

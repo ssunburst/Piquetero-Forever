@@ -7,17 +7,15 @@ import grafico.Grafico;
 import juego.Juego;
 import visitor.Visitor;
 import java.util.Iterator;
-import juego.accionador.Accionador;
+import juego.accionador.AccionadorPersonaje;
 import juego.entidad.proyectil.Proyectil;
 import grafico.detector.DetectorColisiones;
 
 public abstract class Entidad {
 	protected Juego juego;
 	protected Grafico grafico;
-	protected Accionador accionador;
 	protected Visitor visitor;
 	protected DetectorColisiones detector;
-	protected Proyectil proyectil;
 
 	protected int precio;
 	protected int dagno;
@@ -81,10 +79,9 @@ public abstract class Entidad {
 		return velocidad;
 	}
 
-	public void accionar() 
-	{
-		accionador.accionar();
-	}
+	public abstract void accionar();
+	
+	public abstract void atacar(Entidad e);
 	
 	public void mover()
 	{
@@ -94,16 +91,6 @@ public abstract class Entidad {
 		p.setLocation(x, y);
 		grafico.setLocation(p);
 	}
-
-	public void atacar(Entidad e) 
-	{
-		accionador.atacar(e);
-	}
-	
-	public Proyectil getProyectil()
-	{
-		return proyectil;
-	}
 	
 	public Iterable<Entidad> detectarColisiones()
 	{
@@ -111,8 +98,6 @@ public abstract class Entidad {
 	}
 
 	public void vender() {}
-	
-	public abstract Entidad clonar();
 
 	public abstract void aceptar(Visitor v);
 }

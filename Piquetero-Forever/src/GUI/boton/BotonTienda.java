@@ -10,15 +10,13 @@ import juego.Juego;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.piquetero.Mortero;
 
-public class BotonTienda extends JButton 
+public abstract class BotonTienda extends JButton 
 {
 	protected Juego juego;
-	protected Entidad entidad;
 
-	public BotonTienda(Juego j, Entidad e,String t) 
+	public BotonTienda(Juego j, String t) 
 	{
 		this.setSize(new Dimension(80, 20));
-		this.entidad = e;
 		this.setText(t);
 		this.juego = j;
 		this.addActionListener(new ActionListener() 
@@ -28,10 +26,11 @@ public class BotonTienda extends JButton
 			{
 				if (juego.getTienda().getToAdd() == null) 
 				{
+					Entidad e = crearEntidad();
 					if (juego.getMonedas() >= e.getPrecio()) 
 					{
 						juego.gastarMonedas(e.getPrecio());
-						juego.getTienda().setNextToAdd(e.clonar());
+						juego.getTienda().setNextToAdd(e);
 						juego.getGUI().setearPanel(false);
 						juego.getGUI().setearBotonVender(false);
 					}
@@ -39,5 +38,6 @@ public class BotonTienda extends JButton
 			}	
 		});
 	}
-
+	
+	public abstract Entidad crearEntidad();
 }

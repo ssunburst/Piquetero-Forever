@@ -16,9 +16,9 @@ public abstract class ObjetoTemporal extends Objeto
 	@Override
 	public void accionar() 
 	{
-		super.accionar();
 		durConsumida++;
 		if (durConsumida == duracion)
 			morir();
 	}
+	
 }

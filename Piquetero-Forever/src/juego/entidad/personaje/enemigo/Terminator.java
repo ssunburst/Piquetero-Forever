@@ -3,7 +3,9 @@ package juego.entidad.personaje.enemigo;
 import grafico.enemigo.GraficoTerminator;
 import juego.Juego;
 import juego.accionador.AccionadorRango;
+import juego.entidad.proyectil.BolaDeFuegoA;
 import juego.entidad.proyectil.BolaDeFuegoB;
+import juego.entidad.proyectil.Proyectil;
 
 public class Terminator extends Enemigo
 {
@@ -13,16 +15,14 @@ public class Terminator extends Enemigo
 		this.accionador = new AccionadorRango(this, 50);
 		this.grafico = new GraficoTerminator(this);
 		this.velocidad = 2;
-		this.proyectil = new BolaDeFuegoB(j);
 		this.vida = 300;
 		this.puntaje = 70;
 		this.recompensa = 100;
 	}
 	
 	@Override
-	public Enemigo clonar() 
+	public Proyectil disparar() 
 	{
-		return new Terminator(this.juego);
+		return new BolaDeFuegoB(this.juego);
 	}
-
 }

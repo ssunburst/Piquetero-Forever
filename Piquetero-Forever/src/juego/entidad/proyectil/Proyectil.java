@@ -2,24 +2,19 @@ package juego.entidad.proyectil;
 
 import grafico.Grafico;
 import juego.Juego;
-import juego.accionador.AccionadorProyectil;
 import juego.entidad.Entidad;
 import visitor.Visitor;
 import java.awt.Point;
+import java.util.Iterator;
 
 public abstract class Proyectil extends Entidad
-{
-	protected int alcance;
-	protected double distanciaRecorrida;
+{	
+	boolean ataque;
 	
 	protected Proyectil(Juego j)
 	{
 		super(j);
-		this.accionador = new AccionadorProyectil(this);
-	}
-	
-	public int getAlcance() {
-		return alcance;
+		ataque = false;
 	}
 	
 	@Override
@@ -34,26 +29,22 @@ public abstract class Proyectil extends Entidad
 		v.visitarDisparo(this);
 	}
 	
-	public boolean alcanzoDestino()
+	@Override
+	public void accionar() 
 	{
-		return distanciaRecorrida >= alcance;
+		Iterable<Entidad> cols = detectarColisiones();
+		Iterator<Entidad> colsIt = cols.iterator();
+		while (colsIt.hasNext() && !ataque)
+			colsIt.next().aceptar(visitor);
+		if (!ataque)
+			mover();
 	}
-	
-	public double distanciaRecorrida()
-	{
-		return distanciaRecorrida;
-	}
-	
-	public void recorrerDistancia(double d)
-	{
-		distanciaRecorrida =+ d;
-	}
-	
-	public abstract Proyectil clonarEn(Point p);
 	
 	@Override
-	public Entidad clonar() 
+	public void atacar(Entidad e) 
 	{
-		return clonarEn(new Point(0,0));
+		e.recibirDagno(this.dagno);
+		morir();
+		ataque = true;
 	}
 }

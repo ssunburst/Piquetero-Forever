@@ -3,30 +3,31 @@ package juego.accionador;
 import java.util.Iterator;
 
 import juego.entidad.Entidad;
+import juego.entidad.personaje.Personaje;
 
-public class AccionadorMelee extends Accionador {
+public class AccionadorMelee extends AccionadorPersonaje {
 	protected boolean estadoAtaque;
 	protected boolean flag;
 
-	public AccionadorMelee(Entidad e, int d) {
-		super(e, d);
+	public AccionadorMelee(Personaje p, int d) {
+		super(p, d);
 	}
 
 	@Override
 	public void accionar() 
 	{
 		flag = false;
-		for (Entidad e : entidad.detectarColisiones())
-			e.aceptar(entidad.visitor());
+		for (Entidad e : personaje.detectarColisiones())
+			e.aceptar(personaje.visitor());
 		if (!flag)
 		{
 			this.demoraConsumida = 0;
 			if (estadoAtaque)
 			{
 				estadoAtaque = false;
-				entidad.getGrafico().setearImagen(entidad.getGrafico().posIdle());
+				personaje.getGrafico().setearImagen(personaje.getGrafico().posIdle());
 			}
-			entidad.mover();
+			personaje.mover();
 		}
 	}
 
@@ -35,10 +36,10 @@ public class AccionadorMelee extends Accionador {
 		flag = true;
 		if (!estadoAtaque) {
 			estadoAtaque = true;
-			entidad.getGrafico().setearImagen(entidad.getGrafico().posAtaque());
+			personaje.getGrafico().setearImagen(personaje.getGrafico().posAtaque());
 		}
 		if (comprobarDemora()) {
-			e.recibirDagno(entidad.getDagno());
+			e.recibirDagno(personaje.getDagno());
 		}
 	}
 }

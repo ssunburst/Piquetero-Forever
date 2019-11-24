@@ -17,12 +17,4 @@ public class Monstruo extends Enemigo {
 		this.puntaje = 1000;
 		this.grafico = new GraficoMonstruo(this);
 	}
-	
-	@Override
-	public Enemigo clonar() {
-		return new Monstruo(this.juego);
-	}
-	
-	
-
 }

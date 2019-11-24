@@ -16,11 +16,4 @@ public class Megazord extends Piquetero
 		this.dagno = 400;
 		this.grafico = new GraficoMegazord(this);
 	}
-	
-	@Override
-	public Entidad clonar() 
-	{
-		return new Megazord(this.juego);
-	}
-
 }

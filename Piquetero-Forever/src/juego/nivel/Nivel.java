@@ -25,17 +25,13 @@ public abstract class Nivel
 	protected int demoraConsumida;
 	protected int espaciado;
 
-	protected Enemigo mas;
-	protected Enemigo normal;
-	protected Enemigo menos;
-
 	public Nivel(Juego j, int o, int e) {
 		juego = j;
 		oleadas = (List<Enemigo>[]) new List[o];
 		ran = new Random();
 
-		for (int i = 0; i < oleadas.length; i++) {
-			inicializarEnemigos();
+		for (int i = 0; i < oleadas.length; i++) 
+		{
 			oleadas[i] = new LinkedList<Enemigo>();
 			agregarEnemigos(i, e);
 		}
@@ -79,17 +75,15 @@ public abstract class Nivel
 		}
 	}
 
-	protected abstract void inicializarEnemigos();
-
 	protected void agregarEnemigos(int i, int e) {
 		for (int j = 0; j < e; j++) {
 			int r = ran.nextInt(10);
 			if (r < 5)
-				oleadas[i].add(mas.clonar());
+				oleadas[i].add(producirMas());
 			else if ((r >= 5) && (r < 9))
-				oleadas[i].add(normal.clonar());
+				oleadas[i].add(producirMedio());
 			else
-				oleadas[i].add(menos.clonar());
+				oleadas[i].add(producirMenos());
 		}
 	}
 
@@ -105,4 +99,10 @@ public abstract class Nivel
 	public boolean termino() {
 		return nivelTerminado;
 	}
+	
+	protected abstract Enemigo producirMas();
+	
+	protected abstract Enemigo producirMedio();
+	
+	protected abstract Enemigo producirMenos();
 }

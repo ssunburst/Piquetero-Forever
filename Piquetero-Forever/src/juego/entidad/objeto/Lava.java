@@ -18,12 +18,6 @@ public class Lava extends ObjetoTemporal
 	}
 
 	@Override
-	public Entidad clonar() 
-	{
-		return new Lava(this.juego);
-	}
-
-	@Override
 	public void aceptar(Visitor v) 
 	{
 		v.visitarLava(this);

@@ -5,6 +5,7 @@ import juego.entidad.personaje.enemigo.MechaBullrich;
 import juego.entidad.personaje.enemigo.Motaro;
 import juego.entidad.personaje.enemigo.Terminator;
 import juego.entidad.personaje.enemigo.Bison;
+import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.enemigo.Monstruo;
 
 public class NivelUno extends Nivel 
@@ -14,12 +15,19 @@ public class NivelUno extends Nivel
 		super(j, 6);
 		this.espaciado = 98;
 	}
-	
+
 	@Override
-	protected void inicializarEnemigos() 
-	{
-		this.mas = new MechaBullrich(this.juego);
-		this.normal = new Terminator(this.juego);
-		this.menos = new Bison(this.juego);
+	protected Enemigo producirMas() {
+		return new MechaBullrich(this.juego);
 	}
+
+	@Override
+	protected Enemigo producirMedio() {
+		return new Terminator(this.juego);
+	}
+
+	@Override
+	protected Enemigo producirMenos() {
+		return new Bison(this.juego);
+	}	
 }

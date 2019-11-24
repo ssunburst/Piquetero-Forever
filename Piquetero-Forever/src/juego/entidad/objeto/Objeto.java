@@ -22,9 +22,8 @@ public abstract class Objeto extends Entidad
 		this.visitor = new VisitorPiquetero(this);
 	}
 	
-	public void accionar() {}
-	
-	public void atacar() {}
+	@Override
+	public void atacar(Entidad e) {}
 	
 	public void mover() {}
 	

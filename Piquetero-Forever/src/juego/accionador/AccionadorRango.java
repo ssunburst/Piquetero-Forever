@@ -4,28 +4,30 @@ import java.awt.Point;
 import java.util.Iterator;
 import juego.entidad.Entidad;
 import juego.entidad.proyectil.Proyectil;
+import juego.entidad.personaje.Personaje;
 
-public class AccionadorRango extends Accionador {
+public class AccionadorRango extends AccionadorPersonaje {
 	protected boolean mover;
 
-	public AccionadorRango(Entidad e, int d) {
-		super(e, d);
+	public AccionadorRango(Personaje p, int d) {
+		super(p, d);
 		mover = true;
 	}
 
 	@Override
 	public void accionar() {
-		Iterable<Entidad> cols = entidad.detectarColisiones();
+		Iterable<Entidad> cols = personaje.detectarColisiones();
 		Iterator<Entidad> colsIt = cols.iterator();
 		for (Entidad e : cols)
-			e.aceptar(entidad.visitor());
+			e.aceptar(personaje.visitor());
 		if (comprobarDemora())
 		{
-			Proyectil p = entidad.getProyectil().clonarEn(entidad.getGrafico().getLocation());
-			entidad.getJuego().agregarLuego(p);
+			Proyectil p = personaje.disparar();
+			p.getGrafico().setLocation(personaje.getGrafico().getLocation());
+			personaje.getJuego().agregarLuego(p);
 		}
 		if (mover)
-			entidad.mover();
+			personaje.mover();
 		mover = true;
 
 	}

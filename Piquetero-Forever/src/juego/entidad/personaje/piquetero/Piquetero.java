@@ -4,7 +4,7 @@ import grafico.Grafico;
 import grafico.detector.DetectorHaciaDerecha;
 import visitor.Visitor;
 import juego.Juego;
-import juego.accionador.Accionador;
+import juego.accionador.AccionadorPersonaje;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.Personaje;
 import visitor.VisitorPiquetero;

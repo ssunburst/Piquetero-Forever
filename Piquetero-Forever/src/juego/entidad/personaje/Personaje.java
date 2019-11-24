@@ -2,16 +2,31 @@ package juego.entidad.personaje;
 
 import grafico.Grafico;
 import juego.Juego;
-import juego.accionador.Accionador;
+import juego.accionador.AccionadorPersonaje;
 import juego.entidad.Entidad;
+import juego.entidad.proyectil.Proyectil;
+import juego.accionador.Accionador;
 
 public abstract class Personaje extends Entidad
 {
 	protected int armadura;
+	protected Accionador accionador;
 	
 	protected Personaje(Juego j) 
 	{
 		super(j);
+	}
+	
+	@Override
+	public void accionar() 
+	{
+		accionador.accionar();
+	}
+	
+	@Override
+	public void atacar(Entidad e) 
+	{
+		accionador.atacar(e);
 	}
 
 	public int getArmadura() {
@@ -39,5 +54,10 @@ public abstract class Personaje extends Entidad
 			armadura = 0;
 		}
 		return ret;
+	}
+	
+	public Proyectil disparar() 
+	{
+		return null;
 	}
 }
