@@ -9,7 +9,7 @@ public class NivelTres extends Nivel
 {
 	public NivelTres(Juego j)
 	{
-		super(j);
+		super(j, 10);
 		this.espaciado = 96;
 	}
 	

@@ -10,7 +10,7 @@ public class NivelDos extends Nivel
 {
 	public NivelDos(Juego j)
 	{
-		super(j);
+		super(j, 8);
 		this.espaciado = 97;
 	}
 	

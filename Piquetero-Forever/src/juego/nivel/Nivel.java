@@ -29,7 +29,7 @@ public abstract class Nivel
 	protected Enemigo normal;
 	protected Enemigo menos;
 
-	public Nivel(Juego j, int o) {
+	public Nivel(Juego j, int o, int e) {
 		juego = j;
 		oleadas = (List<Enemigo>[]) new List[o];
 		ran = new Random();
@@ -37,18 +37,17 @@ public abstract class Nivel
 		for (int i = 0; i < oleadas.length; i++) {
 			inicializarEnemigos();
 			oleadas[i] = new LinkedList<Enemigo>();
-			agregarEnemigos(i);
+			agregarEnemigos(i, e);
 		}
 		it = oleadas[0].iterator();
 		oleadaActiva = 0;
 		nivelTerminado = false;
-//		demora = 150;
-		demora = 50;
+		demora = 150;
 		demoraConsumida = 0;
 	}
 
-	public Nivel(Juego j) {
-		this(j, 2);
+	public Nivel(Juego j, int e) {
+		this(j, 2, e);
 	}
 
 	public void accionar() {
@@ -82,8 +81,8 @@ public abstract class Nivel
 
 	protected abstract void inicializarEnemigos();
 
-	protected void agregarEnemigos(int i) {
-		for (int j = 0; j < 10; j++) {
+	protected void agregarEnemigos(int i, int e) {
+		for (int j = 0; j < e; j++) {
 			int r = ran.nextInt(10);
 			if (r < 5)
 				oleadas[i].add(mas.clonar());
