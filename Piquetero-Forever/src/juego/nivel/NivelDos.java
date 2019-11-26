@@ -18,7 +18,7 @@ public class NivelDos extends Nivel
 	@Override
 	protected Enemigo producirMas() 
 	{
-		return new MechaBullrich(this.juego);
+		return new Terminator(this.juego);
 	}
 
 	@Override

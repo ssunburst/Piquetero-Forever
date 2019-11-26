@@ -11,10 +11,10 @@ public class Altamira extends Piquetero
 	public Altamira(Juego j) 
 	{
 		super(j);
-		this.accionador = new AccionadorMelee(this, 20);
+		this.accionador = new AccionadorMelee(this, 30);
 		this.grafico = new GraficoAltamira(this);
-		this.dagno = 400;
-		this.precio = 250;
+		this.dagno = 350;
+		this.precio = 200;
 		this.vida = 300;
 	}
 }

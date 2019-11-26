@@ -31,7 +31,7 @@ public abstract class Enemigo extends Personaje
 		this.visitor = new VisitorEnemigo(this);
 		Random ran = new Random();
 		int p = ran.nextInt(10);
-		if (p == 9)
+		if (p >= 8)
 		{
 			p = ran.nextInt(4);
 			switch (p) 
