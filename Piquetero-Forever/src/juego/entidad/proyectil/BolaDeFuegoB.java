@@ -2,7 +2,7 @@ package juego.entidad.proyectil;
 
 import java.awt.Point;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import grafico.proyectil.GraficoBFB;
 import juego.Juego;
 import juego.accionador.AccionadorMelee;

@@ -18,7 +18,7 @@ public class Barril extends ObjetoDurable
 	@Override
 	public void aceptar(Visitor v) 
 	{
-		v.visitarBarril(this);		
+		v.visitar(this);		
 	}
 	
 }

@@ -3,7 +3,7 @@ package juego.entidad;
 import javax.swing.JComponent;
 import javax.swing.Icon;
 import java.awt.Point;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.Juego;
 import visitor.Visitor;
 import java.util.Iterator;
@@ -13,7 +13,7 @@ import grafico.detector.DetectorColisiones;
 
 public abstract class Entidad {
 	protected Juego juego;
-	protected Grafico grafico;
+	protected GraficoEntidad grafico;
 	protected Visitor visitor;
 	protected DetectorColisiones detector;
 
@@ -48,9 +48,8 @@ public abstract class Entidad {
 			this.morir();
 	}
 
-	public void morir() {
-		// TODO Animaciones y otres
-		this.grafico.setearImagen(grafico.posMuerte());
+	public void morir() 
+	{
 		juego.quitarLuego(this);
 	}
 
@@ -62,7 +61,7 @@ public abstract class Entidad {
 		return juego;
 	}
 
-	public Grafico getGrafico() {
+	public GraficoEntidad getGrafico() {
 		return grafico;
 	}
 

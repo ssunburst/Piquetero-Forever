@@ -1,6 +1,6 @@
 package juego.entidad.proyectil;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.Juego;
 import juego.entidad.Entidad;
 import visitor.Visitor;
@@ -26,7 +26,7 @@ public abstract class Proyectil extends Entidad
 	@Override
 	public void aceptar(Visitor v) 
 	{
-		v.visitarDisparo(this);
+		v.visitar(this);
 	}
 	
 	@Override

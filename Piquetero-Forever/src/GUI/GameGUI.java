@@ -128,9 +128,10 @@ public class GameGUI extends JFrame {
 				}
 			}
 		});
+		
 		pnTienda.add(btnVender);
+		
 		cp.add(juego.getMapa());
-
 		this.setVisible(true);
 	}
 
@@ -151,8 +152,8 @@ public class GameGUI extends JFrame {
 	}
 
 	public void actualizarMonedas() {
-		this.lblMonedas.setText("TURRODOLARES   " + juego.getMonedas());
-		this.lblSbraMonedas.setText("TURRODOLARES   " + juego.getMonedas());
+		this.lblMonedas.setText("DOLARUCOS   " + juego.getMonedas());
+		this.lblSbraMonedas.setText("DOLARUCOS   " + juego.getMonedas());
 	}
 	
 	public void actualizarNivel()

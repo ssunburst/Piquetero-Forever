@@ -1,6 +1,5 @@
-package grafico.piquetero;
+package grafico;
 
-import grafico.Grafico;
 import grafico.detector.DetectorHaciaDerecha;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.piquetero.Piquetero;
@@ -11,29 +10,42 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 
-public abstract class GraficoPiquetero extends Grafico
+public abstract class GraficoPersonaje extends GraficoEntidad
 {
-	protected GraficoPiquetero(Entidad e) 
+	protected boolean escudo;
+	
+	protected GraficoPersonaje(Entidad e) 
 	{
 		super(e);
 		this.setSize(new Dimension(119, 100));
+		escudo = false;
 	}
 	
 	@Override
 	protected void setearImagenes() 
 	{
-		imagenes = new Icon[3];
+		imagenes = new Icon[4];
+	}
+	
+	@Override
+	public int posIdle() {
+		if (!escudo)
+			return 0;
+		else
+			return 2;
 	}
 	
 	@Override
 	public int posAtaque() 
 	{
-		return 1;
+		if (!escudo)
+			return 1;
+		else
+			return 3;
 	}
 	
-	@Override
-	public int posMuerte() 
+	public void setearEscudo(boolean e)
 	{
-		return 2;
+		escudo = e;
 	}
 }

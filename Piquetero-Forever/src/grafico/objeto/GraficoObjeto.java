@@ -1,11 +1,11 @@
 package grafico.objeto;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.entidad.Entidad;
 
 import javax.swing.Icon;
 
-public abstract class GraficoObjeto extends Grafico 
+public abstract class GraficoObjeto extends GraficoEntidad 
 {
 	
 	protected GraficoObjeto(Entidad e) 
@@ -21,12 +21,6 @@ public abstract class GraficoObjeto extends Grafico
 	
 	@Override
 	public int posIdle() 
-	{
-		return 0;
-	}
-	
-	@Override
-	public int posMuerte() 
 	{
 		return 0;
 	}

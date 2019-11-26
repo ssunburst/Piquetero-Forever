@@ -1,10 +1,10 @@
 package grafico.proyectil;
 
 import javax.swing.Icon;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.entidad.Entidad;
 
-public abstract class GraficoProyectil extends Grafico 
+public abstract class GraficoProyectil extends GraficoEntidad 
 {
 	
 	protected GraficoProyectil(Entidad e) 
@@ -23,10 +23,4 @@ public abstract class GraficoProyectil extends Grafico
 	{
 		return 0;
 	}
-	
-	@Override
-	public int posMuerte() {
-		return 0;
-	}
-
 }

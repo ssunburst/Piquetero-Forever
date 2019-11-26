@@ -3,10 +3,11 @@ package grafico.enemigo;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
+import grafico.GraficoPersonaje;
 import juego.entidad.Entidad;
 
-public class GraficoMBullrich extends GraficoEnemigo
+public class GraficoMBullrich extends GraficoPersonaje
 {
 	public GraficoMBullrich(Entidad e)
 	{

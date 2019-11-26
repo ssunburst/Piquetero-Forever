@@ -2,9 +2,10 @@ package grafico.enemigo;
 
 import javax.swing.ImageIcon;
 
+import grafico.GraficoPersonaje;
 import juego.entidad.Entidad;
 
-public class GraficoMonstruo extends GraficoEnemigo 
+public class GraficoMonstruo extends GraficoPersonaje 
 {
 
 	public GraficoMonstruo(Entidad e) 

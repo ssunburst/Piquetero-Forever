@@ -1,50 +1,36 @@
 package grafico;
 
-import javax.swing.*;
+import java.awt.Dimension;
 
-import grafico.detector.DetectorColisiones;
+import javax.swing.Icon;
+import javax.swing.JLabel;
+
 import juego.entidad.Entidad;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.lang.Iterable;
 
 public abstract class Grafico extends JLabel
 {
 	protected Icon[] imagenes;
-	protected Entidad entidad;
+	protected int posActual;
 	
-	protected Grafico(Entidad e)
+	protected Grafico()
 	{
-		super();
-		this.entidad = e;
+		super();	
 		setearImagenes();
-		this.setIcon(imagenes[posIdle()]);
+		this.setIcon(imagenes[0]);
+		posActual = 0;
 		this.setSize(new Dimension(imagenes[0].getIconWidth(), 100));
 	}
 	
 	public void setearImagen(int img)
 	{
 		this.setIcon(imagenes[img]);
-	}
-	
-	public Icon[] getImagenes() {
-		return imagenes;
-	}
-	
-	public Entidad getEntidad()
-	{
-		return this.entidad;
+		posActual = img;
 	}
 	
 	protected abstract void setearImagenes();
 	
-	public int posIdle()
+	public int posActual()
 	{
-		return 0;
+		return posActual;
 	}
-	
-	public abstract int posAtaque();
-	
-	public abstract int posMuerte();
 }

@@ -2,14 +2,16 @@ package grafico.piquetero;
 
 import java.awt.Point;
 import javax.swing.ImageIcon;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
+import grafico.GraficoPersonaje;
+import grafico.GraficoPersonajeRango;
 import juego.entidad.Entidad;
 import juego.entidad.personaje.piquetero.Mortero;
 
 import java.awt.*;
 
 
-public class GraficoMortero extends GraficoPiquetero
+public class GraficoMortero extends GraficoPersonajeRango
 {
 	public GraficoMortero(Entidad e)
 	{
@@ -21,7 +23,6 @@ public class GraficoMortero extends GraficoPiquetero
 	{
 		super.setearImagenes();
 		this.imagenes[0] = new ImageIcon(this.getClass().getResource("/imagenes/mortero_idle.gif"));
-		this.imagenes[1] = null;
-		this.imagenes[2] = null;
+		this.imagenes[2] = new ImageIcon(this.getClass().getResource("/imagenes/mortero_idle_shield.gif"));
 	}
 }

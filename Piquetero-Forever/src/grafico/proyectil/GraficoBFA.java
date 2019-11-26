@@ -1,6 +1,6 @@
 package grafico.proyectil;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import grafico.detector.DetectorHaciaIzquierda;
 import juego.entidad.Entidad;
 import javax.swing.Icon;

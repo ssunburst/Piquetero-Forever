@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.Icon;
 import java.awt.Point;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import grafico.detector.DetectorHaciaDerecha;
 import juego.Juego;
 import juego.accionador.AccionadorMelee;

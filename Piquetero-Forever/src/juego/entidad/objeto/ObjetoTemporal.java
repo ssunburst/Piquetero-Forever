@@ -1,6 +1,6 @@
 package juego.entidad.objeto;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.Juego;
 
 public abstract class ObjetoTemporal extends Objeto

@@ -1,6 +1,6 @@
 package juego.entidad.personaje.piquetero;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import grafico.detector.DetectorHaciaDerecha;
 import visitor.Visitor;
 import juego.Juego;
@@ -23,7 +23,7 @@ public abstract class Piquetero extends Personaje
 	@Override
 	public void aceptar(Visitor v) 
 	{
-		v.visitarPiquetero(this);
+		v.visitar(this);
 	}
 
 	@Override

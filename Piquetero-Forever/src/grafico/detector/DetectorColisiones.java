@@ -4,7 +4,7 @@ import juego.entidad.Entidad;
 import juego.Juego;
 import java.util.List;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 
 public abstract class DetectorColisiones 
 {

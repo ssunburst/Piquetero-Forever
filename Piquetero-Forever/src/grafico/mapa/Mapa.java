@@ -7,7 +7,7 @@ import javax.swing.text.Position;
 
 import java.util.List;
 import java.util.LinkedList;
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.Tienda;
 import juego.entidad.Entidad;
 import juego.Juego;
@@ -19,8 +19,8 @@ public class Mapa extends JPanel
 	protected Juego juego;
 	protected JLabel background;
 
-	protected List<Grafico> graficos;
-	protected Map<Point, Grafico> posAliadas;
+	protected List<GraficoEntidad> graficos;
+	protected Map<Point, GraficoEntidad> posAliadas;
 
 	protected int filas = 5;
 	protected int columnas = 9;
@@ -37,8 +37,8 @@ public class Mapa extends JPanel
 
 		boolean vender = false;
 
-		graficos = new LinkedList<Grafico>();
-		posAliadas = new HashMap<Point, Grafico>();
+		graficos = new LinkedList<GraficoEntidad>();
+		posAliadas = new HashMap<Point, GraficoEntidad>();
 
 		Dimension dim = new Dimension(1088, 612);
 		setMinimumSize(dim);
@@ -78,7 +78,7 @@ public class Mapa extends JPanel
 	/*
 	 * Retorna una colección iterable de los graficos actualmente presentes en el mapa.
 	 */
-	public Iterable<Grafico> graficos()
+	public Iterable<GraficoEntidad> graficos()
 	{
 		return graficos;
 	}
@@ -86,7 +86,7 @@ public class Mapa extends JPanel
 	/*
 	 * Agrega un nuevo gráfico al mapa en las coordeanadas dadas.
 	 */
-	public synchronized void agregarGrafico(Grafico toAdd, Point p) {
+	public synchronized void agregarGrafico(GraficoEntidad toAdd, Point p) {
 		toAdd.setLocation(p);
 		this.graficos.add(toAdd);
 		this.add(toAdd);
@@ -96,7 +96,7 @@ public class Mapa extends JPanel
 	/*
 	 * Remueve una entidad gráfica del mapa.
 	 */
-	public synchronized void quitarGrafico(Grafico toRem) 
+	public synchronized void quitarGrafico(GraficoEntidad toRem) 
 	{
 		Point p = toRem.getLocation();
 		posAliadas.remove(p);
@@ -165,7 +165,7 @@ public class Mapa extends JPanel
 			Tienda t = juego.getTienda();
 			Entidad toAdd = t.getToAdd();
 			if (vender) {
-				Grafico gVend = (Grafico) posAliadas.get(p);
+				GraficoEntidad gVend = (GraficoEntidad) posAliadas.get(p);
 				if (gVend != null) 
 				{
 					Entidad aVend = gVend.getEntidad();
@@ -177,7 +177,7 @@ public class Mapa extends JPanel
 			} else if (toAdd != null) {
 				if ((y > -1) && (x > -1)) {
 
-					Grafico g = posAliadas.get(p);
+					GraficoEntidad g = posAliadas.get(p);
 					if (g == null) 
 					{
 						toAdd.getGrafico().setLocation(p);
@@ -195,7 +195,7 @@ public class Mapa extends JPanel
 	
 	public void purgar()
 	{
-		for (Grafico g : graficos)
+		for (GraficoEntidad g : graficos)
 		{
 			int x = g.getX();
 			if ((x + g.getWidth() < 0) || (x > getWidth()))

@@ -20,6 +20,6 @@ public class Lava extends ObjetoTemporal
 	@Override
 	public void aceptar(Visitor v) 
 	{
-		v.visitarLava(this);
+		v.visitar(this);
 	}
 }

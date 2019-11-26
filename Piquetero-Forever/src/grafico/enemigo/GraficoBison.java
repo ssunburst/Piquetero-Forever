@@ -3,9 +3,12 @@ package grafico.enemigo;
 import juego.entidad.Entidad;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
+import grafico.GraficoPersonaje;
+
 import java.util.Random;
 
-public class GraficoBison extends GraficoEnemigo 
+public class GraficoBison extends GraficoPersonaje 
 {
 
 	public GraficoBison(Entidad e) 

@@ -6,21 +6,16 @@ import juego.entidad.personaje.piquetero.Piquetero;
 import juego.entidad.proyectil.ProyectilAmigo;
 import juego.entidad.proyectil.ProyectilEnemigo;
 
-public class VisitorPiquetero extends Visitor
+public class VisitorPiquetero extends VisitorEntidad
 {
 	
 	public VisitorPiquetero(Entidad e)
 	{
 		super(e);
 	}
-	
-	@Override
-	public void visitarPiquetero(Piquetero e) 
-	{	
-	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) 
+	public void visitar(Enemigo e) 
 	{
 		this.entidad.atacar(e);
 	}

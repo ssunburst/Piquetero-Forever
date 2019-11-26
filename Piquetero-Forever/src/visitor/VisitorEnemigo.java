@@ -6,7 +6,7 @@ import juego.entidad.objeto.Barril;
 import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.piquetero.Piquetero;
 
-public class VisitorEnemigo extends Visitor
+public class VisitorEnemigo extends VisitorEntidad
 {
 
 	public VisitorEnemigo(Entidad e) 
@@ -15,25 +15,23 @@ public class VisitorEnemigo extends Visitor
 	}
 	
 	@Override
-	public void visitarPiquetero(Piquetero e) 
+	public void visitar(Piquetero e) 
 	{
 		this.entidad.atacar(e);
 	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) 
+	public void visitar(Enemigo e) 
 	{
 		
 	}
 	
-	@Override
-	public void visitarBarril(Barril b) 
+	public void visitar(Barril b) 
 	{
 		entidad.atacar(b);
 	}
 	
-	@Override
-	public void visitarLava(Lava a) 
+	public void visitar(Lava a) 
 	{
 		entidad.recibirDagno(a.getDagno());
 	}

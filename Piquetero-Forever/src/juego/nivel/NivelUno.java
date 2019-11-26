@@ -15,6 +15,8 @@ public class NivelUno extends Nivel
 		super(j, 6);
 		this.espaciado = 98;
 	}
+	
+	
 
 	@Override
 	protected Enemigo producirMas() {
@@ -23,7 +25,7 @@ public class NivelUno extends Nivel
 
 	@Override
 	protected Enemigo producirMedio() {
-		return new Terminator(this.juego);
+		return new Bison(this.juego);
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import juego.entidad.Entidad;
 import java.util.LinkedList;
 import java.util.List;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import grafico.mapa.Mapa;
 
 public class DetectorHaciaIzquierda extends DetectorColisiones {
@@ -17,8 +17,8 @@ public class DetectorHaciaIzquierda extends DetectorColisiones {
 	public Iterable<Entidad> detectarColisiones() {
 		List<Entidad> ret = new LinkedList<Entidad>();
 		Mapa m = entidad.getJuego().getMapa();
-		Grafico grafico = entidad.getGrafico();
-		for (Grafico g : m.graficos()) {
+		GraficoEntidad grafico = entidad.getGrafico();
+		for (GraficoEntidad g : m.graficos()) {
 			if (grafico.getY() == g.getY()) {
 				if (g != grafico) {
 					int x = grafico.getX();

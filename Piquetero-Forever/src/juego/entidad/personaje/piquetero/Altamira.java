@@ -13,7 +13,7 @@ public class Altamira extends Piquetero
 		super(j);
 		this.accionador = new AccionadorMelee(this, 20);
 		this.grafico = new GraficoAltamira(this);
-		this.dagno = 250;
+		this.dagno = 400;
 		this.precio = 250;
 		this.vida = 300;
 	}

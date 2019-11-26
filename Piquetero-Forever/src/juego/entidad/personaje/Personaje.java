@@ -1,20 +1,28 @@
 package juego.entidad.personaje;
 
-import grafico.Grafico;
+import grafico.GraficoEntidad;
 import juego.Juego;
 import juego.accionador.AccionadorPersonaje;
 import juego.entidad.Entidad;
 import juego.entidad.proyectil.Proyectil;
+import juego.estado.Estado;
+import juego.estado.Normal;
 import juego.accionador.Accionador;
 
 public abstract class Personaje extends Entidad
 {
-	protected int armadura;
+	protected Estado estado;
 	protected Accionador accionador;
 	
 	protected Personaje(Juego j) 
 	{
 		super(j);
+		estado = new Normal(this);
+	}
+	
+	public void setVida(int v)
+	{
+		this.vida = v;
 	}
 	
 	@Override
@@ -28,36 +36,27 @@ public abstract class Personaje extends Entidad
 	{
 		accionador.atacar(e);
 	}
-
-	public int getArmadura() {
-		return armadura;
+	
+	@Override
+	public void mover() 
+	{
+		estado.mover();
 	}
-
-	public void setArmadura(int armadura) {
-		this.armadura = armadura;
-	}
+	
 	
 	@Override
 	public void recibirDagno(int d) 
 	{
-		d = consumirArmadura(d);
-		super.recibirDagno(d);
-	}
-	
-	private int consumirArmadura(int d)
-	{
-		armadura -= d;
-		int ret = 0;
-		if (armadura < 0)
-		{
-			ret = -armadura;
-			armadura = 0;
-		}
-		return ret;
+		estado.recibirDagno(d);
 	}
 	
 	public Proyectil disparar() 
 	{
 		return null;
+	}
+	
+	public void setEstado(Estado e)
+	{
+		this.estado = e;
 	}
 }
