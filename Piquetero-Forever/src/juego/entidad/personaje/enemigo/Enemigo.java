@@ -14,6 +14,7 @@ import juego.powerup.ChoriClasico;
 import juego.powerup.ChoriCongelado;
 import juego.powerup.ChoriToxico;
 import juego.powerup.PowerUp;
+import juego.powerup.PowerUps;
 import visitor.Visitor;
 import visitor.VisitorEnemigo;
 
@@ -30,25 +31,12 @@ public abstract class Enemigo extends Personaje
 		this.detector = new DetectorHaciaIzquierda(j, this);
 		this.visitor = new VisitorEnemigo(this);
 		Random ran = new Random();
-		int p = ran.nextInt(10);
-		if (p >= 8)
+		int p = ran.nextInt(5);
+		if (p == 4)
 		{
-			p = ran.nextInt(4);
-			switch (p) 
-			{
-				case 0:
-					premio = new ChoriAsfalto(juego);
-					break;
-				case 1:
-					premio = new ChoriClasico(juego);
-					break;
-				case 2:
-					premio = new ChoriCongelado(juego);
-					break;
-				case 3:
-					premio = new ChoriToxico(juego);
-					break;
-			}
+			PowerUps pups = new PowerUps(juego);
+			p = ran.nextInt(pups.totalPowerUps());
+			premio = pups.getPowerUp(p);
 		}
 	}
 	

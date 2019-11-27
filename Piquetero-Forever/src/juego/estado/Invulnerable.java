@@ -20,7 +20,7 @@ public class Invulnerable extends Normal {
 	}
 
 	public Invulnerable(Personaje p) {
-		this(p, 7);
+		this(p, 5);
 	}
 
 	@Override

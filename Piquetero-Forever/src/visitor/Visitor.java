@@ -7,11 +7,7 @@ import juego.entidad.objeto.Barril;
 import juego.entidad.objeto.Lava;
 
 public abstract class Visitor 
-{
-	public Visitor() 
-	{
-	}
-	
+{	
 	public void visitar(Piquetero e) {}
 	
 	public void visitar(Enemigo e) {}

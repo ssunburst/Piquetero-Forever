@@ -16,5 +16,4 @@ public class BotonLava extends BotonTienda {
 	{
 		return new Lava(this.juego);
 	}
-
 }

@@ -15,14 +15,14 @@ import juego.Juego;
 import juego.entidad.personaje.enemigo.MechaBullrich;
 import juego.entidad.personaje.piquetero.Altamira;
 import juego.entidad.personaje.piquetero.Megazord;
-import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.TurroMortero;
 import grafico.enemigo.GraficoMBullrich;
 import grafico.mapa.Mapa;
 import java.util.List;
 import java.util.LinkedList;
 import juego.entidad.Entidad;
 import juego.entidad.objeto.Barril;
-import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.TurroMortero;
 import juego.entidad.personaje.piquetero.SubZero;
 import juego.entidad.objeto.Lava;
 

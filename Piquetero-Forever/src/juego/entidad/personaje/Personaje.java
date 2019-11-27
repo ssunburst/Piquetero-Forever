@@ -43,16 +43,10 @@ public abstract class Personaje extends Entidad
 		estado.mover();
 	}
 	
-	
 	@Override
 	public void recibirDagno(int d) 
 	{
 		estado.recibirDagno(d);
-	}
-	
-	public Proyectil disparar() 
-	{
-		return null;
 	}
 	
 	public void setEstado(Estado e)

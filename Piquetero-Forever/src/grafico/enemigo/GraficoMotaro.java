@@ -10,7 +10,6 @@ public class GraficoMotaro extends GraficoPersonaje
 
 	public GraficoMotaro(Entidad e) {
 		super(e);
-
 	}
 	
 	@Override

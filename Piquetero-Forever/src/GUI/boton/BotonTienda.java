@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 import juego.Juego;
 import juego.entidad.Entidad;
-import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.TurroMortero;
 
 public abstract class BotonTienda extends JButton 
 {

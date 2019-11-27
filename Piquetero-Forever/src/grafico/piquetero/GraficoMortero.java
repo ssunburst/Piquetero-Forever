@@ -6,7 +6,7 @@ import grafico.GraficoEntidad;
 import grafico.GraficoPersonaje;
 import grafico.GraficoPersonajeRango;
 import juego.entidad.Entidad;
-import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.TurroMortero;
 
 import java.awt.*;
 

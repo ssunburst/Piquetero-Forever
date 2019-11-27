@@ -6,23 +6,25 @@ import juego.entidad.Entidad;
 import juego.entidad.proyectil.Proyectil;
 import juego.entidad.personaje.Personaje;
 
-public class AccionadorRango extends AccionadorPersonaje {
+public class AccionadorRango extends AccionadorPersonaje 
+{
 	protected boolean mover;
+	protected Arma arma;
 
-	public AccionadorRango(Personaje p, int d) {
+	public AccionadorRango(Personaje p, int d, Arma a) {
 		super(p, d);
+		arma = a;
 		mover = true;
 	}
 
 	@Override
 	public void accionar() {
 		Iterable<Entidad> cols = personaje.detectarColisiones();
-		Iterator<Entidad> colsIt = cols.iterator();
 		for (Entidad e : cols)
 			e.aceptar(personaje.visitor());
 		if (comprobarDemora())
 		{
-			Proyectil p = personaje.disparar();
+			Proyectil p = arma.disparar();
 			p.getGrafico().setLocation(personaje.getGrafico().getLocation());
 			personaje.getJuego().agregarLuego(p);
 		}

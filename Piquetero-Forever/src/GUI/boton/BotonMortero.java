@@ -1,7 +1,7 @@
 package GUI.boton;
 
 import juego.entidad.Entidad;
-import juego.entidad.personaje.piquetero.Mortero;
+import juego.entidad.personaje.piquetero.TurroMortero;
 import juego.Juego;
 
 public class BotonMortero extends BotonTienda
@@ -14,7 +14,7 @@ public class BotonMortero extends BotonTienda
 	@Override
 	public Entidad crearEntidad() 
 	{
-		return new Mortero(this.juego);
+		return new TurroMortero(this.juego);
 	}
 	
 }
