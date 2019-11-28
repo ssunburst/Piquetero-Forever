@@ -20,7 +20,7 @@ public class Mapa extends JPanel
 	protected JLabel background;
 
 	protected List<GraficoEntidad> graficos;
-	protected Map<Point, GraficoEntidad> posAliadas;
+	protected Map<Point, Entidad> posAliadas;
 
 	protected int filas = 5;
 	protected int columnas = 9;
@@ -38,7 +38,7 @@ public class Mapa extends JPanel
 		boolean vender = false;
 
 		graficos = new LinkedList<GraficoEntidad>();
-		posAliadas = new HashMap<Point, GraficoEntidad>();
+		posAliadas = new HashMap<Point, Entidad>();
 
 		Dimension dim = new Dimension(1088, 612);
 		setMinimumSize(dim);
@@ -165,11 +165,10 @@ public class Mapa extends JPanel
 			Tienda t = juego.getTienda();
 			Entidad toAdd = t.getToAdd();
 			if (vender) {
-				GraficoEntidad gVend = (GraficoEntidad) posAliadas.get(p);
-				if (gVend != null) 
+				Entidad vend = posAliadas.get(p);
+				if (vend != null) 
 				{
-					Entidad aVend = gVend.getEntidad();
-					aVend.vender();
+					vend.vender();
 					vender = false;
 					juego.getGUI().setearPanel(true);
 					juego.getGUI().setearBotonVender(true);
@@ -177,11 +176,11 @@ public class Mapa extends JPanel
 			} else if (toAdd != null) {
 				if ((y > -1) && (x > -1)) {
 
-					GraficoEntidad g = posAliadas.get(p);
-					if (g == null) 
+					Entidad ent = posAliadas.get(p);
+					if (ent == null) 
 					{
 						toAdd.getGrafico().setLocation(p);
-						posAliadas.put(p, toAdd.getGrafico());
+						posAliadas.put(p, toAdd);
 						juego.agregarLuego(toAdd);
 						juego.getGUI().setearPanel(true);
 						juego.getGUI().setearBotonVender(true);
