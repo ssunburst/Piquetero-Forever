@@ -5,6 +5,7 @@ import juego.entidad.personaje.enemigo.Enemigo;
 import juego.entidad.personaje.enemigo.MechaBullrich;
 import juego.entidad.personaje.enemigo.Monstruo;
 import juego.entidad.personaje.enemigo.Motaro;
+import juego.entidad.personaje.enemigo.Terminator;
 
 public class NivelTres extends Nivel 
 {
@@ -16,7 +17,7 @@ public class NivelTres extends Nivel
 
 	@Override
 	protected Enemigo producirMas() {
-		return new Motaro(this.juego);
+		return new Terminator(this.juego);
 	}
 
 	@Override
