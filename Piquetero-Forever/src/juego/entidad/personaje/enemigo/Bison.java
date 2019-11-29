@@ -13,8 +13,8 @@ public class Bison extends Enemigo
 		this.accionador = new AccionadorMelee(this, 30);
 		this.dagno = 150;
 		this.puntaje = 400;
-		this.recompensa = 200;
-		this.vida = 300;
+		this.recompensa = 150;
+		this.vida = 250;
 		this.velocidad = 9;
 		this.grafico = new GraficoBison(this);
 	}

@@ -10,7 +10,7 @@ public class Motaro extends Enemigo
 		super(j);
 		this.accionador = new AccionadorMelee(this, 20);
 		this.grafico = new GraficoMotaro(this);
-		this.dagno = 400;
+		this.dagno = 150;
 		this.vida = 1500;
 		this.velocidad = 5;
 		this.recompensa = 120;

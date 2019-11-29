@@ -15,8 +15,7 @@ public class NivelUno extends Nivel
 		super(j, 6);
 		this.espaciado = 98;
 	}
-	
-	
+
 
 	@Override
 	protected Enemigo producirMas() {

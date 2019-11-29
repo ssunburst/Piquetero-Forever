@@ -10,10 +10,10 @@ public class Megazord extends Piquetero
 
 	public Megazord(Juego j) {
 		super(j);
-		this.accionador = new AccionadorMelee(this, 60);
+		this.accionador = new AccionadorMelee(this, 20);
 		this.vida = 400;
-		this.precio = 300;
-		this.dagno = 400;
+		this.precio = 500;
+		this.dagno = 600;
 		this.grafico = new GraficoMegazord(this);
 	}
 }

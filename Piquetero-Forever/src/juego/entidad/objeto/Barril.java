@@ -11,8 +11,8 @@ public class Barril extends ObjetoDurable
 	public Barril(Juego j) {
 		super(j);
 		this.grafico = new GraficoBarril(this);
-		this.vida = 2500;
-		this.precio = 0;
+		this.vida = 3000;
+		this.precio = 75;
 	}
 
 	@Override

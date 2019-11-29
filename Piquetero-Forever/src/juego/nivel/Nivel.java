@@ -64,12 +64,21 @@ public abstract class Nivel
 				}
 			} else 
 			{
-				if (oleadaActiva == (oleadas.length - 1))
-					nivelTerminado = true;
-				else 
+				boolean flag = true;
+				Iterator<Enemigo> ie = oleadas[oleadaActiva].iterator();
+				while (flag && ie.hasNext())
 				{
-					demoraConsumida = 0;
-					oleadaActiva++;
+					Enemigo en = ie.next();
+					flag = flag && en.getVida() <= 0;
+				}
+				if (flag)
+				{
+					if (oleadaActiva == (oleadas.length - 1))
+						nivelTerminado = true;
+					else
+					{
+						it = oleadas[++oleadaActiva].iterator();
+					}
 				}
 			}
 		}

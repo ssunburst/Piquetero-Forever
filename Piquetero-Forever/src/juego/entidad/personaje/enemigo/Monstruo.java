@@ -10,9 +10,9 @@ public class Monstruo extends Enemigo {
 	{
 		super(j);
 		this.accionador = new AccionadorMelee(this, 40);
-		this.dagno = 200;
-		this.vida = 1500;
-		this.velocidad = 3;
+		this.dagno = 300;
+		this.vida = 2500;
+		this.velocidad = 2;
 		this.recompensa = 500;
 		this.puntaje = 1000;
 		this.grafico = new GraficoMonstruo(this);

@@ -46,13 +46,39 @@ public class GameGUI extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		lstBotones = new LinkedList<JButton>();
+		
 		// Panel tienda
 		pnTienda = new JPanel();
-		pnTienda.setLayout(new FlowLayout());
+		pnTienda.setLayout(null);
 		pnTienda.setBounds(1095, 5, 150, 603);
-		pnTienda.setOpaque(false);
-//		pnTienda.setBackground(Color.black);
-		cp.add(pnTienda);
+		
+		JLabel lblPersonajesSbra = new JLabel("PERSONAJES");
+		lblPersonajesSbra.setForeground(Color.black);
+		lblPersonajesSbra.setFont(new Font("Arial black", Font.ITALIC, 15));
+		lblPersonajesSbra.setBounds(13, 50, 150, 15);
+		JLabel lblPersonajes = new JLabel("PERSONAJES");
+		lblPersonajes.setForeground(Color.white);
+		lblPersonajes.setFont(new Font("Arial black", Font.ITALIC, 15));
+		lblPersonajes.setBounds(15, 49, 150, 15);
+		
+		JLabel lblObjetosSbra = new JLabel("OBJETOS");
+		lblObjetosSbra.setForeground(Color.black);
+		lblObjetosSbra.setFont(new Font("Arial black", Font.ITALIC, 15));
+		lblObjetosSbra.setBounds(13, 195, 150, 15);
+		JLabel lblObjetos = new JLabel("OBJETOS");
+		lblObjetos.setForeground(Color.white);
+		lblObjetos.setFont(new Font("Arial black", Font.ITALIC, 15));
+		lblObjetos.setBounds(15, 194, 150, 15);
+		
+		pnTienda.add(lblPersonajes);
+		pnTienda.add(lblPersonajesSbra);
+		pnTienda.add(lblObjetos);
+		pnTienda.add(lblObjetosSbra);
+		
+		JLabel bgTienda = new JLabel();
+		bgTienda.setSize(150, 603);
+		bgTienda.setLocation(0, 0);
+		bgTienda.setIcon(new ImageIcon(this.getClass().getResource("/imagenes/panel_bg.png")));
 
 		// Label de Puntaje
 		lblSbraPuntaje = new JLabel("PUNTAJE   " + juego.getPuntaje());
@@ -100,12 +126,18 @@ public class GameGUI extends JFrame {
 
 		// Botones
 		btnMortero = new BotonMortero(juego);
+		btnMortero.setLocation(13, 70);
 		btnSubZero = new BotonSubZero(juego);
+		btnSubZero.setLocation(13, 95);
 		btnAltamira = new BotonAltamira(juego);
+		btnAltamira.setLocation(13, 120);
 		btnMegazord = new BotonMegazord(juego);
+		btnMegazord.setLocation(13, 145);
 		
 		btnBarril = new BotonBarril(juego);
+		btnBarril.setLocation(13, 215);
 		btnLava =  new BotonLava(juego);
+		btnLava.setLocation(13, 240);
 		
 		lstBotones.add(btnMortero);
 		lstBotones.add(btnSubZero);
@@ -129,9 +161,14 @@ public class GameGUI extends JFrame {
 			}
 		});
 		
+		btnVender.setSize(124, 20);
+		btnVender.setLocation(13, 310);
 		pnTienda.add(btnVender);
+		pnTienda.add(bgTienda);
 		
+		cp.add(pnTienda);
 		cp.add(juego.getMapa());
+		
 		this.setVisible(true);
 	}
 

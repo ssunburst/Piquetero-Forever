@@ -13,9 +13,9 @@ public class TurroMortero extends Piquetero
 	public TurroMortero(Juego j) 
 	{
 		super(j);
-		this.accionador = new AccionadorRango(this, 90, new Mortero(j));
+		this.accionador = new AccionadorRango(this, 100, new Mortero(j));
 		this.velocidad = 2;
-		this.precio = 170;
+		this.precio = 200;
 		this.vida = 100;
 		this.grafico = new GraficoMortero(this);
 	}
